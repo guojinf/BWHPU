@@ -13,12 +13,13 @@ uses
   ModbusConsts in 'ModbusConsts.pas',
   ModBusTcp_C in 'ModBusTcp_C.pas',
   ModbusTypes in 'ModbusTypes.pas',
-  ModbusUtils in 'ModbusUtils.pas';
+  ModbusUtils in 'ModbusUtils.pas',
+  LanguageFunc in 'LanguageFunc.pas';
 
 {$R *.res}
 
 begin
-  ReportMemoryLeaksOnShutdown := DebugHook<>0;
+ // ReportMemoryLeaksOnShutdown := DebugHook<>0;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMainForm, MainForm);

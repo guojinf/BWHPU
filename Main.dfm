@@ -2,9 +2,9 @@ object MainForm: TMainForm
   Left = 100
   Top = 100
   BorderWidth = 2
-  Caption = #26234#33021#27833#28304#25511#21046#31995#32479
-  ClientHeight = 231
-  ClientWidth = 312
+  Caption = 'POPWIL_HPU'
+  ClientHeight = 211
+  ClientWidth = 301
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,12 +21,14 @@ object MainForm: TMainForm
   PixelsPerInch = 96
   TextHeight = 13
   object Bevel1: TBevel
+    Tag = 255
     Left = 0
     Top = 24
     Width = 745
     Height = 1
   end
   object CommSta_Shape1: TShape
+    Tag = 255
     Left = 8
     Top = -4
     Width = 12
@@ -35,12 +37,14 @@ object MainForm: TMainForm
     Shape = stCircle
   end
   object Panel1: TPanel
+    Tag = 255
     Left = 8
     Top = 24
     Width = 705
     Height = 202
     TabOrder = 0
     object GroupBox1: TGroupBox
+      Tag = 255
       Left = 0
       Top = 0
       Width = 192
@@ -56,9 +60,10 @@ object MainForm: TMainForm
       ParentFont = False
       TabOrder = 0
       object ResetSta_Shape: TShape
+        Tag = 255
         Left = 102
         Top = 17
-        Width = 12
+        Width = 30
         Height = 22
         Brush.Color = clGreen
         Shape = stCircle
@@ -67,11 +72,12 @@ object MainForm: TMainForm
       object Label1: TLabel
         Left = 16
         Top = 61
-        Width = 36
+        Width = 24
         Height = 13
-        Caption = #28388#27833#22120
+        Caption = 'Filter'
       end
       object Filter_Shape1: TShape
+        Tag = 255
         Left = 69
         Top = 56
         Width = 12
@@ -80,6 +86,7 @@ object MainForm: TMainForm
         Shape = stCircle
       end
       object Filter_Shape2: TShape
+        Tag = 255
         Left = 87
         Top = 56
         Width = 12
@@ -89,6 +96,7 @@ object MainForm: TMainForm
         Visible = False
       end
       object Filter_Shape3: TShape
+        Tag = 255
         Left = 105
         Top = 56
         Width = 12
@@ -98,6 +106,7 @@ object MainForm: TMainForm
         Visible = False
       end
       object Filter_Shape4: TShape
+        Tag = 255
         Left = 123
         Top = 56
         Width = 12
@@ -139,12 +148,13 @@ object MainForm: TMainForm
       end
       object PressureCaptionLabel: TLabel
         Left = 16
-        Top = 88
-        Width = 27
+        Top = 93
+        Width = 42
         Height = 13
-        Caption = #21387' '#21147
+        Caption = 'Pressure'
       end
       object PressureUnitLabel: TLabel
+        Tag = 255
         Left = 152
         Top = 85
         Width = 20
@@ -152,8 +162,9 @@ object MainForm: TMainForm
         Caption = 'MPa'
       end
       object TemprUnitLabel: TLabel
+        Tag = 255
         Left = 152
-        Top = 112
+        Top = 115
         Width = 12
         Height = 13
         Caption = #176'C'
@@ -161,11 +172,12 @@ object MainForm: TMainForm
       object TemprCaptionLabel: TLabel
         Left = 16
         Top = 112
-        Width = 27
+        Width = 30
         Height = 13
-        Caption = #28201' '#24230
+        Caption = 'Temp.'
       end
       object HYLUnitLabel: TLabel
+        Tag = 255
         Left = 152
         Top = 134
         Width = 11
@@ -175,13 +187,14 @@ object MainForm: TMainForm
       object HYLCaptionLabel: TLabel
         Left = 16
         Top = 134
-        Width = 27
+        Width = 25
         Height = 13
-        Caption = #28082' '#20301
+        Caption = 'Level'
       end
       object QUnitLabel: TLabel
+        Tag = 255
         Left = 152
-        Top = 156
+        Top = 153
         Width = 25
         Height = 13
         Caption = 'L/min'
@@ -189,11 +202,12 @@ object MainForm: TMainForm
       object QCaptionLabel: TLabel
         Left = 16
         Top = 156
-        Width = 27
+        Width = 22
         Height = 13
-        Caption = #27969' '#37327
+        Caption = 'Flow'
       end
       object Label14: TLabel
+        Tag = 255
         Left = 40
         Top = -16
         Width = 37
@@ -201,6 +215,7 @@ object MainForm: TMainForm
         Caption = 'Label14'
       end
       object PressureEdit: TEdit
+        Tag = 255
         Left = 66
         Top = 84
         Width = 69
@@ -217,6 +232,7 @@ object MainForm: TMainForm
         Text = '0.0'
       end
       object TemprEdit: TEdit
+        Tag = 255
         Left = 66
         Top = 108
         Width = 69
@@ -233,6 +249,7 @@ object MainForm: TMainForm
         Text = '10.0'
       end
       object HYLEdit: TEdit
+        Tag = 255
         Left = 66
         Top = 130
         Width = 69
@@ -249,6 +266,7 @@ object MainForm: TMainForm
         Text = '50.0'
       end
       object QEdit: TEdit
+        Tag = 255
         Left = 66
         Top = 152
         Width = 69
@@ -265,12 +283,12 @@ object MainForm: TMainForm
         Text = '3.0'
       end
       object ResetPanel: TPanel
-        Left = 51
+        Left = 40
         Top = 14
-        Width = 69
+        Width = 105
         Height = 25
         BorderStyle = bsSingle
-        Caption = #22797#20301'/'#20840#20572
+        Caption = 'Reset/All Stop'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
@@ -287,14 +305,14 @@ object MainForm: TMainForm
       Top = 0
       Width = 114
       Height = 193
-      Caption = #27833#27893'1'
+      Caption = 'Pump1'
       TabOrder = 1
       object PumpON_SpeedButton1: TSpeedButton
         Left = 15
         Top = 68
         Width = 65
         Height = 22
-        Caption = #27833#27893#24320
+        Caption = 'Pump ON'
         OnClick = PumpON_SpeedButton1Click
       end
       object PumpOFF_SpeedButton1: TSpeedButton
@@ -302,7 +320,7 @@ object MainForm: TMainForm
         Top = 96
         Width = 65
         Height = 22
-        Caption = #27833#27893#20851
+        Caption = 'Pump OFF'
         OnClick = PumpOFF_SpeedButton1Click
       end
       object PressureHI_SpeedButton1: TSpeedButton
@@ -310,7 +328,7 @@ object MainForm: TMainForm
         Top = 124
         Width = 65
         Height = 22
-        Caption = #39640#21387
+        Caption = 'High'
         OnClick = PressureHI_SpeedButton1Click
       end
       object PressureLow_SpeedButton1: TSpeedButton
@@ -318,10 +336,11 @@ object MainForm: TMainForm
         Top = 152
         Width = 65
         Height = 22
-        Caption = #20302#21387
+        Caption = 'Low'
         OnClick = PressureLow_SpeedButton1Click
       end
       object PumpSta_Shape1: TShape
+        Tag = 255
         Left = 86
         Top = 68
         Width = 12
@@ -330,6 +349,7 @@ object MainForm: TMainForm
         Shape = stCircle
       end
       object PressureSta_Shape1: TShape
+        Tag = 255
         Left = 86
         Top = 124
         Width = 12
@@ -375,6 +395,7 @@ object MainForm: TMainForm
         Caption = #20302#21387
       end
       object PumpSta_Shape2: TShape
+        Tag = 255
         Left = 109
         Top = 68
         Width = 12
@@ -383,6 +404,7 @@ object MainForm: TMainForm
         Shape = stCircle
       end
       object PressureSta_Shape2: TShape
+        Tag = 255
         Left = 109
         Top = 124
         Width = 12
@@ -428,6 +450,7 @@ object MainForm: TMainForm
         Caption = #20302#21387
       end
       object PumpSta_Shape3: TShape
+        Tag = 255
         Left = 109
         Top = 68
         Width = 12
@@ -436,6 +459,7 @@ object MainForm: TMainForm
         Shape = stCircle
       end
       object PressureSta_Shape3: TShape
+        Tag = 255
         Left = 109
         Top = 124
         Width = 12
@@ -481,6 +505,7 @@ object MainForm: TMainForm
         Caption = #20302#21387
       end
       object PumpSta_Shape4: TShape
+        Tag = 255
         Left = 109
         Top = 68
         Width = 12
@@ -489,6 +514,7 @@ object MainForm: TMainForm
         Shape = stCircle
       end
       object PressureSta_Shape4: TShape
+        Tag = 255
         Left = 109
         Top = 124
         Width = 12
@@ -509,6 +535,7 @@ object MainForm: TMainForm
     OnClick = Button1Click
   end
   object ClientSocket1: TClientSocket
+    Tag = 255
     Active = False
     Address = '192.168.0.3'
     ClientType = ctNonBlocking
@@ -517,29 +544,36 @@ object MainForm: TMainForm
     Top = 200
   end
   object MainMenu1: TMainMenu
+    Tag = 255
     Left = 64
     object N2: TMenuItem
+      Tag = 255
       AutoHotkeys = maManual
-      Caption = #31995#32479'( &Systerm)'
+      Caption = ' &Systerm'
       object Options_Item: TMenuItem
-        Caption = #35774#32622'(&Option)'
+        Tag = 255
+        Caption = '&Option'
         OnClick = Options_ItemClick
       end
       object Quit_Item: TMenuItem
-        Caption = #36864#20986'(&Quit)'
+        Tag = 255
+        Caption = '&Quit'
         OnClick = Quit_ItemClick
       end
     end
     object N1: TMenuItem
+      Tag = 255
       AutoHotkeys = maManual
-      Caption = #24110#21161' (&Help) '
+      Caption = '&Help'
       object About_Item: TMenuItem
-        Caption = #20851#20110'(&About)'
+        Tag = 255
+        Caption = '&About'
         OnClick = About_ItemClick
       end
     end
   end
   object PLC_Comm: TComm
+    Tag = 255
     CommName = 'COM1'
     BaudRate = 9600
     ParityCheck = False
@@ -571,11 +605,14 @@ object MainForm: TMainForm
     Top = 200
   end
   object DspTimer: TTimer
+    Tag = 255
+    Enabled = False
     Interval = 300
     OnTimer = DspTimerTimer
     Left = 32
   end
   object IdModBus_To_PLC: TIdModBusClient
+    Tag = 255
     ConnectTimeout = 3000
     IPVersion = Id_IPv4
     ReadTimeout = 3000

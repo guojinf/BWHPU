@@ -30,6 +30,18 @@ Const
 
   RECONNECTCOUNTCONST=5;
 
+  MAXLANGSNUM=10;  //软件中用到的多语言String 数量
+
+LANGUAGEFILE_C='HPULangChinese.ini';   //中文
+LANGUAGEFILE_E='HPULangEnglish.ini';   //英语
+LANGUAGEFILE_O='HPULangOthers.ini';   //其它
+
+LANGUAGEFILE_D='HPULangDefault.ini';
+
+LanguageType_C=0;
+LanguageType_E=1;
+LanguageType_O=2;
+
 Type
  // arreglo de bytes que conforman el mensaje modbus y un puntero al mismo
   TDataByte = array of byte;
@@ -125,6 +137,7 @@ End;
 TMemAll=record
   PComSendMem1,PComSendMem2,PComSendMem3,PComSendMem4:PAnsiChar;
 end;
+
 
 
 

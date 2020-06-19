@@ -15,6 +15,10 @@ interface
   HYSetCMD_En:boolean;   //指令有变，开始传送
   HYSetCMD_Num:Integer; //连续传送指令次数
 
+  //多语言
+// LangInfo:TLangInfo;
+  msgStr:Array[1..10] of String;
+   LanguageFileName:String;
 
 implementation
 

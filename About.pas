@@ -9,10 +9,12 @@ uses
 type
   TAboutForm = class(TForm)
     Memo1: TMemo;
+    VersionLabel: TLabel;
   private
     { Private declarations }
   public
     { Public declarations }
+    Function GetBuildInfo: string;
   end;
 
 var
@@ -21,5 +23,58 @@ var
 implementation
 
 {$R *.dfm}
+
+Function TAboutForm.GetBuildInfo: string; //資函井云催
+
+var
+
+　verinfosize : DWORD;
+
+　verinfo : pointer;
+
+　vervaluesize : dword;
+
+　vervalue : pvsfixedfileinfo;
+
+　dummy : dword;
+
+　v1,v2,v3,v4 : word;
+
+begin
+
+　verinfosize := getfileversioninfosize(pchar(paramstr(0)),dummy);
+
+　if verinfosize = 0 then begin
+
+　　dummy := getlasterror;
+
+　　result := '0.0.0.0';
+
+　end;
+
+　getmem(verinfo,verinfosize);
+
+　getfileversioninfo(pchar(paramstr(0)),0,verinfosize,verinfo);
+
+　verqueryvalue(verinfo,'\',pointer(vervalue),vervaluesize);
+
+　with vervalue^ do begin
+
+　　v1 := dwfileversionms shr 16;
+
+　　v2 := dwfileversionms and $ffff;
+
+　　v3 := dwfileversionls shr 16;
+
+　　v4 := dwfileversionls and $ffff;
+
+　end;
+
+　result := inttostr(v1) + '.' + inttostr(v2) + '.' + inttostr(v3) + '.' + inttostr(v4);
+
+　freemem(verinfo,verinfosize);
+
+end;
+
 
 end.

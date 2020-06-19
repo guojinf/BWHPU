@@ -116,11 +116,14 @@ implementation
 
 {$R *.dfm}
 
-//uses ;
+uses LanguageFunc;
 
 procedure TMainForm.About_ItemClick(Sender: TObject);
 begin
   AboutForm.show;
+
+
+
 end;
 
 procedure TMainForm.Quit_ItemClick(Sender: TObject);
@@ -155,7 +158,7 @@ end;
 
 procedure TMainForm.Button1Click(Sender: TObject);
 var
-tmpStr:string;
+//tmpStr:string;
 tmpAnsiStr:ansistring;
 Pstr:PChar;
 PAnsiStr:PansiChar;
@@ -170,7 +173,8 @@ begin
   // Mainform.PLC_Comm.WriteCommData(PansiStr,TmpInt);
  //  FatekPLCForm.SendData2Plc(PansiStr,TmpInt,03) ;
   // FatekPLCForm.SetHYACT(1) ;
-  FatekPLCForm.GetHYStatus(1);
+ // FatekPLCForm.GetHYStatus(1);
+ SetLanguage(ExtractFilePath(ParamStr(0))+LanguageFileName, msgStr, $FF);
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -196,7 +200,8 @@ begin
     MainForm.ModbusTCP2PLC(ParaInfo.pumpNum);
   end;
 
-
+  sleep(500);
+  DspTimer.Enabled:=False;
   FatekPLCForm.PLCCOMFree();
   FreeMemory(PStr_Send2PLC);
  //  if IdModBus_To_PLC.Connected then
@@ -217,6 +222,11 @@ s:String;
 begin
   GetDir(0,s);
   mDirName:=s+'\'; //获取当前目录
+  //多语言设置
+ LanguageFileName:=LANGUAGEFILE_D;
+    DefineMsgStr();
+//SetLanguage(ExtractFilePath(ParamStr(0))+LanguageFileName, msgStr, $FF);
+
 //-----------------设备配置文件--------------------------------------
   HYParaFileName:=mDirName+'HYInitPara.Ini';      //读试验初始化文件
   if FileExists(HYParaFileName) then
@@ -226,7 +236,7 @@ begin
   end
   else
   begin
-    showmessage('无HYInitPara.Ini配置文件！');
+    showmessage(MSGStr[1]);    // '无HYInitPara.Ini配置文件！'
    if ParaInfo.CommType=COMMTYPE_COM then
     begin
       FatekPLCForm.PLCCOMDefault();
@@ -237,6 +247,7 @@ begin
     end;
     //Application.Terminate;
   end;
+
 
 
 end;
@@ -310,11 +321,16 @@ begin
     end; //end .
 
 
-  end; //end case
+      end; //end case
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
+
+     //多语言设置
+ // SetLanguage(ExtractFilePath(ParamStr(0))+LanguageFileName, msgStr, $FF);
+ //SetLanguage(mDirName+LanguageFileName, msgStr, $FF);
+ //
   PStr_Send2PLC:=GetMemory(BufferLength_Send2PLC);
   PMemAll.PComSendMem1:=GetMemory(128);
   PMemAll.PComSendMem2:=GetMemory(128);
@@ -343,6 +359,11 @@ begin
 
 
   ResetPanel.SetFocus;
+
+
+
+  Sleep(300);
+  DspTimer.Enabled:=True;
 
 end;
 

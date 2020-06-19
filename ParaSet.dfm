@@ -1,7 +1,7 @@
 object ParaSetForm: TParaSetForm
   Left = 0
   Top = 0
-  Caption = #26234#33021#27833#28304#21442#25968#35774#32622
+  Caption = 'HPS CONFIG'
   ClientHeight = 243
   ClientWidth = 472
   Color = clBtnFace
@@ -14,49 +14,101 @@ object ParaSetForm: TParaSetForm
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object NetGroupBox: TGroupBox
+    Left = 207
+    Top = 8
+    Width = 185
+    Height = 152
+    Caption = 'Net para'
+    TabOrder = 3
+    object Label6: TLabel
+      Left = 24
+      Top = 32
+      Width = 35
+      Height = 13
+      Caption = 'Dest IP'
+    end
+    object Label7: TLabel
+      Left = 24
+      Top = 56
+      Width = 27
+      Height = 13
+      Caption = 'PORT'
+    end
+    object IPPortComboBox: TComboBox
+      Tag = 255
+      Left = 66
+      Top = 56
+      Width = 103
+      Height = 21
+      TabOrder = 0
+      Text = '502'
+      Items.Strings = (
+        '500'
+        '502')
+    end
+    object IPMaskEdit: TMaskEdit
+      Tag = 255
+      Left = 66
+      Top = 31
+      Width = 103
+      Height = 19
+      EditMask = '999.999.999.999;1;_'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #23435#20307
+      Font.Style = []
+      MaxLength = 15
+      ParentFont = False
+      TabOrder = 1
+      Text = '192.168.000.003'
+    end
+  end
   object ComGroupBox: TGroupBox
     Left = 208
     Top = 8
     Width = 185
     Height = 152
-    Caption = #20018#21475#21442#25968
+    Caption = 'Com para'
     TabOrder = 2
     object Label1: TLabel
       Left = 16
       Top = 24
-      Width = 24
+      Width = 21
       Height = 13
-      Caption = #20018#21475
+      Caption = 'Com'
     end
     object Label2: TLabel
       Left = 16
       Top = 52
-      Width = 36
+      Width = 17
       Height = 13
-      Caption = #27874#29305#29575
+      Caption = 'Bps'
     end
     object Label3: TLabel
       Left = 14
       Top = 78
-      Width = 36
+      Width = 38
       Height = 13
-      Caption = #25968#25454#20301
+      Caption = 'Data bit'
     end
     object Label4: TLabel
       Left = 14
       Top = 105
-      Width = 24
+      Width = 29
       Height = 13
-      Caption = #26657#39564
+      Caption = 'Check'
     end
     object Label5: TLabel
       Left = 14
       Top = 131
-      Width = 36
+      Width = 37
       Height = 13
-      Caption = #20572#27490#20301
+      Caption = 'Stop bit'
     end
     object SelCom_ComboBox: TComboBox
+      Tag = 255
       Left = 64
       Top = 21
       Width = 86
@@ -72,6 +124,7 @@ object ParaSetForm: TParaSetForm
         'pnCOM6')
     end
     object BpsComboBox: TComboBox
+      Tag = 255
       Left = 64
       Top = 48
       Width = 86
@@ -96,6 +149,7 @@ object ParaSetForm: TParaSetForm
         'br256000')
     end
     object DataBitComboBox: TComboBox
+      Tag = 255
       Left = 64
       Top = 75
       Width = 86
@@ -109,6 +163,7 @@ object ParaSetForm: TParaSetForm
         'db8BITS')
     end
     object ParityComboBox: TComboBox
+      Tag = 255
       Left = 64
       Top = 102
       Width = 86
@@ -123,6 +178,7 @@ object ParaSetForm: TParaSetForm
         'ptSPACE')
     end
     object StopBitComboBox: TComboBox
+      Tag = 255
       Left = 64
       Top = 128
       Width = 86
@@ -135,73 +191,25 @@ object ParaSetForm: TParaSetForm
         'sb2BITS')
     end
   end
-  object NetGroupBox: TGroupBox
-    Left = 207
-    Top = 8
-    Width = 185
-    Height = 152
-    Caption = #32593#32476#21442#25968
-    TabOrder = 3
-    object Label6: TLabel
-      Left = 24
-      Top = 32
-      Width = 34
-      Height = 13
-      Caption = #30446#26631'IP'
-    end
-    object Label7: TLabel
-      Left = 24
-      Top = 56
-      Width = 36
-      Height = 13
-      Caption = #31471#21475#21495
-    end
-    object IPPortComboBox: TComboBox
-      Left = 66
-      Top = 56
-      Width = 103
-      Height = 21
-      TabOrder = 0
-      Text = '502'
-      Items.Strings = (
-        '500'
-        '502')
-    end
-    object IPMaskEdit: TMaskEdit
-      Left = 66
-      Top = 31
-      Width = 103
-      Height = 19
-      EditMask = '999.999.999.999;1;_'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = #23435#20307
-      Font.Style = []
-      MaxLength = 15
-      ParentFont = False
-      TabOrder = 1
-      Text = '192.168.000.003'
-    end
-  end
   object GroupBox1: TGroupBox
     Left = 8
     Top = 8
     Width = 193
     Height = 65
-    Caption = #27833#27893#25968#37327
+    Caption = 'HPS PARA'
     TabOrder = 0
     object Label8: TLabel
-      Left = 16
+      Left = 11
       Top = 24
-      Width = 48
+      Width = 51
       Height = 13
-      Caption = #27833#27893#25968#37327
+      Caption = 'HPS Count'
     end
     object Pump_Num_ComboBox: TComboBox
-      Left = 70
+      Tag = 255
+      Left = 80
       Top = 21
-      Width = 75
+      Width = 65
       Height = 21
       TabOrder = 0
       Text = '1'
@@ -218,9 +226,9 @@ object ParaSetForm: TParaSetForm
   object PumpCheckBox1: TCheckBox
     Left = 8
     Top = 166
-    Width = 185
+    Width = 201
     Height = 17
-    Caption = #36864#20986#26102#20851#38381#27833#28304#65292#35831#35880#24910#36873#25321#65281
+    Caption = 'All pump off when exit'#65292'Be Careful'#65281
     TabOrder = 1
   end
   object OKButton: TButton
@@ -228,7 +236,7 @@ object ParaSetForm: TParaSetForm
     Top = 200
     Width = 75
     Height = 25
-    Caption = #24212#29992
+    Caption = 'Apply'
     TabOrder = 4
     OnClick = OKButtonClick
   end
@@ -237,7 +245,7 @@ object ParaSetForm: TParaSetForm
     Top = 200
     Width = 75
     Height = 25
-    Caption = #36864#20986
+    Caption = 'Exit'
     TabOrder = 5
     OnClick = CancelButtonClick
   end
@@ -246,10 +254,10 @@ object ParaSetForm: TParaSetForm
     Top = 82
     Width = 194
     Height = 78
-    Caption = #36890#35759#21442#25968
+    Caption = 'Select'
     Items.Strings = (
-      #20018#21475#36890#35759
-      #32593#21475#36890#35759)
+      'COM'
+      'NET')
     TabOrder = 6
     OnClick = CommTypeRadioGroup1Click
   end
