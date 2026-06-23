@@ -1,4 +1,4 @@
-unit Main;
+ï»¿unit Main;
 
 interface
 
@@ -96,7 +96,7 @@ type
     procedure DspTimerTimer(Sender: TObject);
     Procedure Comm2PLC() ;
         Procedure ComDataTran();
-    //--------Í¨¹ıModbusTCPĞ­ÒéÏòFatekPLC·¢Ö¸Áî  Í¨Ñ¶·¢Æğ£¬Master
+    //--------é€šè¿‡ModbusTCPåè®®å‘FatekPLCå‘æŒ‡ä»¤  é€šè®¯å‘èµ·ï¼ŒMaster
     Procedure ModbusTCP2PLC(PumpNum:Byte);
     Procedure DispConectStatus(Sender: TObject);
   private
@@ -128,7 +128,7 @@ end;
 
 procedure TMainForm.Quit_ItemClick(Sender: TObject);
 begin
-  //ÊÇ·ñÑ¡ÔñÁË¹ØÈí¼şÊ±£¬¹Ø±ÕÓÍ±Ã£¬ÈçÑ¡ÁË£¬ÒªÏÈ¹ØÓÍ±Ã
+  //æ˜¯å¦é€‰æ‹©äº†å…³è½¯ä»¶æ—¶ï¼Œå…³é—­æ²¹æ³µï¼Œå¦‚é€‰äº†ï¼Œè¦å…ˆå…³æ²¹æ³µ
   close;
 end;
 
@@ -152,7 +152,7 @@ begin
     HYParaInfo.HYCMD.Pump_OnOff[i]:=0;
     HYParaInfo.HYCMD.Pressure_HiLow[i]:=0;
   end;
-  HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+  HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
   HYSetCMD_Num:=0;
 end;
 
@@ -181,7 +181,7 @@ procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 var
 i:byte;
 begin
-   //ÊÇ·ñÑ¡ÔñÁË¹ØÈí¼şÊ±£¬¹Ø±ÕÓÍ±Ã£¬ÈçÑ¡ÁË£¬ÒªÏÈ¹ØÓÍ±Ã
+   //æ˜¯å¦é€‰æ‹©äº†å…³è½¯ä»¶æ—¶ï¼Œå…³é—­æ²¹æ³µï¼Œå¦‚é€‰äº†ï¼Œè¦å…ˆå…³æ²¹æ³µ
   if ParaInfo.PumpOff_ATSoftColse_EN then
   begin
     for I := 1 to ParaInfo.PumpNum do
@@ -190,12 +190,12 @@ begin
       HYParaInfo.HYCMD.Pump_OnOff[i]:=PUMP_OFF;
     end;
 
-    HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+    HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
     HYSetCMD_Num:=0;
   end;
   if HYSetCMD_En then
   begin
-    //i:=0;  //¿ÉÒÔÊ²Ã´¶¼²»×ö
+    //i:=0;  //å¯ä»¥ä»€ä¹ˆéƒ½ä¸åš
     CommFunc:=0;
     MainForm.ModbusTCP2PLC(ParaInfo.pumpNum);
   end;
@@ -221,22 +221,22 @@ Var
 s:String;
 begin
   GetDir(0,s);
-  mDirName:=s+'\'; //»ñÈ¡µ±Ç°Ä¿Â¼
-  //¶àÓïÑÔÉèÖÃ
+  mDirName:=s+'\'; //è·å–å½“å‰ç›®å½•
+  //å¤šè¯­è¨€è®¾ç½®
  LanguageFileName:=LANGUAGEFILE_D;
     DefineMsgStr();
 //SetLanguage(ExtractFilePath(ParamStr(0))+LanguageFileName, msgStr, $FF);
 
-//-----------------Éè±¸ÅäÖÃÎÄ¼ş--------------------------------------
-  HYParaFileName:=mDirName+'HYInitPara.Ini';      //¶ÁÊÔÑé³õÊ¼»¯ÎÄ¼ş
+//-----------------è®¾å¤‡é…ç½®æ–‡ä»¶--------------------------------------
+  HYParaFileName:=mDirName+'HYInitPara.Ini';      //è¯»è¯•éªŒåˆå§‹åŒ–æ–‡ä»¶
   if FileExists(HYParaFileName) then
   begin
     ParaInfo:=OpenParaIniFile(HYParaFileName);
-    ParaInfoBak:=ParaInfo;//±£´æ³õÊ¼»¯ÎÄ¼ş±¸·İ
+    ParaInfoBak:=ParaInfo;//ä¿å­˜åˆå§‹åŒ–æ–‡ä»¶å¤‡ä»½
   end
   else
   begin
-    showmessage(MSGStr[1]);    // 'ÎŞHYInitPara.IniÅäÖÃÎÄ¼ş£¡'
+    showmessage(MSGStr[1]);    // 'æ— HYInitPara.Inié…ç½®æ–‡ä»¶ï¼'
    if ParaInfo.CommType=COMMTYPE_COM then
     begin
       FatekPLCForm.PLCCOMDefault();
@@ -288,7 +288,7 @@ begin
     end; //end Num6
      VK_NUMPAD7:
     begin
-      // ParaSetForm.SmoothFilterCheckBoxClick(Sender); //ÇĞ»»ÊÇ·ñÆ½»¬ÇúÏß
+      // ParaSetForm.SmoothFilterCheckBoxClick(Sender); //åˆ‡æ¢æ˜¯å¦å¹³æ»‘æ›²çº¿
 
     end; //end Num7
      VK_NUMPAD8:
@@ -327,7 +327,7 @@ end;
 procedure TMainForm.FormShow(Sender: TObject);
 begin
 
-     //¶àÓïÑÔÉèÖÃ
+     //å¤šè¯­è¨€è®¾ç½®
  // SetLanguage(ExtractFilePath(ParamStr(0))+LanguageFileName, msgStr, $FF);
  //SetLanguage(mDirName+LanguageFileName, msgStr, $FF);
  //
@@ -369,7 +369,7 @@ end;
 
 procedure TMainForm.Options_ItemClick(Sender: TObject);
 begin
-  //µ÷ÓÃ²ÎÊıÉèÖÃÒ³Ãæ
+  //è°ƒç”¨å‚æ•°è®¾ç½®é¡µé¢
   ParaSetForm.show;
  // DispConectStatus(Sender);
 end;
@@ -382,9 +382,9 @@ var
   tmpArray    : array[0..4096] of ansichar;
   Errcode:integer;
   i : DWORD;
-  FunCode,PLC_ID:Byte; //¹¦ÄÜÃüÁî£¬PLCµÄ»úºÅ
+  FunCode,PLC_ID:Byte; //åŠŸèƒ½å‘½ä»¤ï¼ŒPLCçš„æœºå·
   Count       : DWORD;
-  CurPos : DWORD; //µ±Ç°Î»ÖÃ
+  CurPos : DWORD; //å½“å‰ä½ç½®
   HYStatus,HYStatus_tmp: DWord;
   tmpStr ,FunCodeStr,PLC_IDStr,HYStatus_str ,CheckSumStr    : ansistring;
 
@@ -395,7 +395,7 @@ begin
   pStr := Buffer;
   tmpStr :=#02;// string(pStr);
 
-  if BufferLength < 31 then     //Ò»¸öÓÍ±ÃÊ±µÄ×îĞ¡·µ»ØÊı¾İÁ¿
+  if BufferLength < 31 then     //ä¸€ä¸ªæ²¹æ³µæ—¶çš„æœ€å°è¿”å›æ•°æ®é‡
   begin
     exit;
   end;
@@ -406,7 +406,7 @@ begin
   end;
 
 
-  for i:=0 to BufferLength-3 do   //Ã»ÓĞLRCÊı¾İÕı³£Ó¦¸ÃÊÇ´Ó0ÖÁBufferLength-1
+  for i:=0 to BufferLength-3 do   //æ²¡æœ‰LRCæ•°æ®æ­£å¸¸åº”è¯¥æ˜¯ä»0è‡³BufferLength-1
   begin
     tmpArray[i] := (pStr^);
     tmpstr:=tmpstr+ (tmpArray[i]);
@@ -444,23 +444,23 @@ begin
     FunCode:=$FF;
   end;
 
-  if PLC_ID = ParaInfo.ComPara.ID  then    // IDÕıÈ·
+  if PLC_ID = ParaInfo.ComPara.ID  then    // IDæ­£ç¡®
   begin
-    if (PStr+4)^='0' then  //´íÎóÂëÎª0
+    if (PStr+4)^='0' then  //é”™è¯¯ç ä¸º0
     begin
      // if CheckSum=checkLRC(Pstr1,StrLen(Pstr1)) then
       begin
-      //´Ë´¦Ó¦¼ÓÈëLRC¼ìÑéÕıÈ·
+      //æ­¤å¤„åº”åŠ å…¥LRCæ£€éªŒæ­£ç¡®
         Case FunCode of
           $46:
             begin
-              //½øĞĞ·µ»ØÊı¾İµÄ½âÂë£¬¸÷×´Ì¬¼°ÊµÊ±Î»ÒÆ
+              //è¿›è¡Œè¿”å›æ•°æ®çš„è§£ç ï¼Œå„çŠ¶æ€åŠå®æ—¶ä½ç§»
               for I := 1 to ParaInfo.PumpNum do
               begin
                 if ParaInfo.PumpNum=1 then
                 begin
-                  HYStatus_str:= Copy(Pstr,6,8); //ÓÍ±Ã1×´Ì¬ ÓÍÔ´»ù´¡×´Ì¬
-                  HYStatus_tmp:=DWORD(StrToInt('$'+HYStatus_str));   //¸ß16Î»ÔİÎ´ÓÃ
+                  HYStatus_str:= Copy(Pstr,6,8); //æ²¹æ³µ1çŠ¶æ€ æ²¹æºåŸºç¡€çŠ¶æ€
+                  HYStatus_tmp:=DWORD(StrToInt('$'+HYStatus_str));   //é«˜16ä½æš‚æœªç”¨
                   HYStatus:=HYStatus_tmp shR 16 + HYStatus_tmp shl 16;
                   HYParaInfo.HYStatus.Pressure_AnsiStr[1]:=Copy(Pstr,14,4);
                   HYParaInfo.HYStatus.Tempr_AnsiStr[1]:=Copy(Pstr,18,4);
@@ -468,7 +468,7 @@ begin
                   HYParaInfo.HYStatus.Flow_L_AnsiStr[1]:=Copy(Pstr,26,4);
                 end else
                 begin
-                  HYStatus_str:= Copy(Pstr,30+4*(i-2),4); //ÓÍ±Ã1×´Ì¬ ÓÍÔ´»ù´¡×´Ì¬
+                  HYStatus_str:= Copy(Pstr,30+4*(i-2),4); //æ²¹æ³µ1çŠ¶æ€ æ²¹æºåŸºç¡€çŠ¶æ€
                   HYStatus:=WORD(StrToInt('$'+HYStatus_str));
                   HYParaInfo.HYStatus.Pressure_AnsiStr[1]:=Copy(Pstr,14,4);
                   HYParaInfo.HYStatus.Tempr_AnsiStr[1]:=Copy(Pstr,18,4);
@@ -476,8 +476,8 @@ begin
                   HYParaInfo.HYStatus.Flow_L_AnsiStr[1]:=Copy(Pstr,26,4);
                 end;
 
-                //SFStatus 0Î»£º±Ã1ÆôÍ££¬3Î»£º¸ßµÍÑ¹£¬4Î»£ºÂËÓÍÆ÷
-              if ((HYStatus and $0001)<>0)  then   //ÓÍ±Ã×´Ì¬£¬1ÔËĞĞ0Í£Ö¹
+                //SFStatus 0ä½ï¼šæ³µ1å¯åœï¼Œ3ä½ï¼šé«˜ä½å‹ï¼Œ4ä½ï¼šæ»¤æ²¹å™¨
+              if ((HYStatus and $0001)<>0)  then   //æ²¹æ³µçŠ¶æ€ï¼Œ1è¿è¡Œ0åœæ­¢
               begin
                 HYParaInfo.HYStatus.Pump_OnOff[i]:=1;
               end else
@@ -485,7 +485,7 @@ begin
                 HYParaInfo.HYStatus.Pump_OnOff[i]:=0;
               end;
 
-               if ((HYStatus and $0002)<>0)  then   //ÀäÈ´×´Ì¬£¬1ÔËĞĞ0Í£Ö¹
+               if ((HYStatus and $0002)<>0)  then   //å†·å´çŠ¶æ€ï¼Œ1è¿è¡Œ0åœæ­¢
               begin
                 HYParaInfo.HYStatus.CoolPump_OnOff[i]:=1;
               end else
@@ -501,7 +501,7 @@ begin
 
               end;
 
-              if ((HYStatus and $0008)<>0)  then   //¸ßµÍÑ¹×´Ì¬£¬1¸ßÑ¹£¬0µÍÑ¹
+              if ((HYStatus and $0008)<>0)  then   //é«˜ä½å‹çŠ¶æ€ï¼Œ1é«˜å‹ï¼Œ0ä½å‹
               begin
                 HYParaInfo.HYStatus.Pressure_HiLow[i]:=1;
               end   else
@@ -509,7 +509,7 @@ begin
                 HYParaInfo.HYStatus.Pressure_HiLow[i]:=0;
               end;
 
-              if (HYStatus and $00F0)<>0 then    //ÂËÓÍÆ÷×´Ì¬
+              if (HYStatus and $00F0)<>0 then    //æ»¤æ²¹å™¨çŠ¶æ€
               begin
                  HYParaInfo.HYStatus.Oil_Filter_Status[i]:=(HYStatus and $00F0) SHR 4;
               end   else
@@ -541,7 +541,7 @@ begin
     end; //end if PLC_ID=MotorPara.MheInfo.MotorID
   end else //end if (PStr+4)^='0'
   begin
-    //ÏÔÊ¾´íÎóÂë "PLCÍ¨Ñ¶´íÎó+(PStr+4)^ "
+    //æ˜¾ç¤ºé”™è¯¯ç  "PLCé€šè®¯é”™è¯¯+(PStr+4)^ "
   end; // end  if PLC_ID=MotorPara.MheInfo.MotorID else
   pStr:=nil;
   pstr1:=nil;
@@ -549,28 +549,28 @@ end;
 
 procedure TMainForm.PressureHI_SpeedButton1Click(Sender: TObject);
 begin
-  if HYParaInfo.HYStatus.Pump_OnOff[1]=1 then     //Îª1Ê±ÓÍ±Ã¿ªÆô
+  if HYParaInfo.HYStatus.Pump_OnOff[1]=1 then     //ä¸º1æ—¶æ²¹æ³µå¼€å¯
   begin
     HYParaInfo.HYCMD.Pressure_HiLow[1]:=PRESSURE_HI;
-    HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+    HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
     HYSetCMD_Num:=0;
   end else
   begin
-    ShowMessage('ÇëÏÈ¿ªÆôÓÍ±Ã£¬ÔÙ¸ßÑ¹²Ù×÷');
+    ShowMessage('è¯·å…ˆå¼€å¯æ²¹æ³µï¼Œå†é«˜å‹æ“ä½œ');
   end;
 end;
 
 procedure TMainForm.PressureLow_SpeedButton1Click(Sender: TObject);
 begin
   HYParaInfo.HYCMD.Pressure_HiLow[1]:=PRESSURE_LOW;
-  HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+  HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
   HYSetCMD_Num:=0;
 end;
 
 procedure TMainForm.PumpOFF_SpeedButton1Click(Sender: TObject);
 begin
   HYParaInfo.HYCMD.Pump_OnOff[1]:=PUMP_OFF;
-  HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+  HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
   HYSetCMD_Num:=0;
 end;
 
@@ -578,7 +578,7 @@ procedure TMainForm.PumpON_SpeedButton1Click(Sender: TObject);
 begin
   HYParaInfo.HYCMD.Pump_OnOff[1]:=PUMP_ON;
   HYParaInfo.HYCMD.Pressure_HiLow[1]:=PRESSURE_LOW;
-  HYSetCMD_En:=True;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+  HYSetCMD_En:=True;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
   HYSetCMD_Num:=0;
 end;
 
@@ -586,7 +586,7 @@ end;
 Procedure TMainForm.DispConectStatus(Sender: TObject);
 begin
      case ParaInfo.CommType of
-    COMMTYPE_COM:    //ÅäÖÃ´®¿Ú
+    COMMTYPE_COM:    //é…ç½®ä¸²å£
     begin
       if FatekPLCForm.PLCCOMInit(ParaInfo.ComPara) then
       begin
@@ -608,7 +608,7 @@ begin
         IdModBus_To_PLC.Disconnect;
       end;
     end;
-    COMMTYPE_NET:   //ÅäÖÃÍø¿Ú
+    COMMTYPE_NET:   //é…ç½®ç½‘å£
     begin
       IdModBus_To_PLC.Host:=ParaInfo.NetPara.IPAddr;
       if not IdModBus_To_PLC.Connected then
@@ -636,7 +636,7 @@ begin
 end;
 //=======
 
-//--------´®¿ÚÀ´µÄÊı¾İÎª×Ö·û´®£¬×ª»»Ò»ÏÂ
+//--------ä¸²å£æ¥çš„æ•°æ®ä¸ºå­—ç¬¦ä¸²ï¼Œè½¬æ¢ä¸€ä¸‹
 Procedure TMainForm.ComDataTran();
 var
 i:integer;
@@ -673,7 +673,7 @@ begin
 
 end;
 
-//======= ´®¿ÚÀ´µÄÊı¾İÎª×Ö·û´®£¬×ª»»Ò»ÏÂ
+//======= ä¸²å£æ¥çš„æ•°æ®ä¸ºå­—ç¬¦ä¸²ï¼Œè½¬æ¢ä¸€ä¸‹
 
  //--------------------
 Procedure TMainForm.DispAllHYPara();
@@ -766,7 +766,7 @@ begin
 end;
 //========
 
-//-----Í¨¹ıModBusTCPÉèÖÃÓÍ±Ã¶¯×÷
+//-----é€šè¿‡ModBusTCPè®¾ç½®æ²¹æ³µåŠ¨ä½œ
 Function ModBusTcpSetHYACT(PumpNum:Byte):boolean;
 var
 i:integer;
@@ -803,11 +803,11 @@ begin
     Result:=False;
   end;
 end;
-//=====Í¨¹ıModBusTCPÉèÖÃÓÍ±Ã¶¯×÷
+//=====é€šè¿‡ModBusTCPè®¾ç½®æ²¹æ³µåŠ¨ä½œ
 
 
-//--------Í¨¹ıModbusTCPĞ­ÒéÏòFatekPLC·¢Ö¸Áî  Í¨Ñ¶·¢Æğ£¬Master
-//---ÓĞÆäËü»î½Ï¼±£¬ÁÙÊ±ÄÜÓÃ¾Í¿É
+//--------é€šè¿‡ModbusTCPåè®®å‘FatekPLCå‘æŒ‡ä»¤  é€šè®¯å‘èµ·ï¼ŒMaster
+//---æœ‰å…¶å®ƒæ´»è¾ƒæ€¥ï¼Œä¸´æ—¶èƒ½ç”¨å°±å¯
 Procedure TMainForm.ModbusTCP2PLC(PumpNum:Byte);
 var
 i:integer;
@@ -816,11 +816,11 @@ ADDR_ST:Word;
 HYStatus:Word;
 REGRDData:array[0..4096] of Word;
 begin
-   //Ã»ÓĞÖ¸ÁîÏÂ´«Ê±£¬·¢¶ÁÈ¡ÓÍÔ´×´Ì¬Ö¸Áî
+   //æ²¡æœ‰æŒ‡ä»¤ä¸‹ä¼ æ—¶ï¼Œå‘è¯»å–æ²¹æºçŠ¶æ€æŒ‡ä»¤
 
   CommFunc:=(CommFunc+1) mod 2;
   case CommFunc of
-    CommFunc_GetPara:    //È¡ÓÍÔ´×´Ì¬Ö¸Áî
+    CommFunc_GetPara:    //å–æ²¹æºçŠ¶æ€æŒ‡ä»¤
     begin
      // FatekPLCForm.GetHYStatus(ParaInfo.PumpNum);
       REGNUM:=6+PumpNum-1;
@@ -828,7 +828,7 @@ begin
      // SetLength(REGData, REGNUM);
       IdModBus_To_PLC.Host:=ParaInfo.NetPara.IPAddr;
       if IdModBus_To_PLC.ReadHoldingRegisters(ADDR_ST,RegNum,REGRDData) then
-      begin   //½âÎö´¦ÀíÊÕµ½µÄÊı¾İ
+      begin   //è§£æå¤„ç†æ”¶åˆ°çš„æ•°æ®
          //
          ParaInfo.NetPara.ReadErrNum:=0;
          for I := 1 to PumpNum do
@@ -845,8 +845,8 @@ begin
              //
              HYStatus:=REGRDData[i+4];
            end;
-            //SFStatus 0Î»£º±Ã1ÆôÍ££¬3Î»£º¸ßµÍÑ¹£¬4Î»£ºÂËÓÍÆ÷
-              if ((HYStatus and $0001)<>0)  then   //ÓÍ±Ã×´Ì¬£¬1ÔËĞĞ0Í£Ö¹
+            //SFStatus 0ä½ï¼šæ³µ1å¯åœï¼Œ3ä½ï¼šé«˜ä½å‹ï¼Œ4ä½ï¼šæ»¤æ²¹å™¨
+              if ((HYStatus and $0001)<>0)  then   //æ²¹æ³µçŠ¶æ€ï¼Œ1è¿è¡Œ0åœæ­¢
               begin
                 HYParaInfo.HYStatus.Pump_OnOff[i]:=1;
               end else
@@ -854,7 +854,7 @@ begin
                 HYParaInfo.HYStatus.Pump_OnOff[i]:=0;
               end;
 
-               if ((HYStatus and $0002)<>0)  then   //ÀäÈ´×´Ì¬£¬1ÔËĞĞ0Í£Ö¹
+               if ((HYStatus and $0002)<>0)  then   //å†·å´çŠ¶æ€ï¼Œ1è¿è¡Œ0åœæ­¢
               begin
                 HYParaInfo.HYStatus.CoolPump_OnOff[i]:=1;
               end else
@@ -870,7 +870,7 @@ begin
 
               end;
 
-              if ((HYStatus and $0008)<>0)  then   //¸ßµÍÑ¹×´Ì¬£¬1¸ßÑ¹£¬0µÍÑ¹
+              if ((HYStatus and $0008)<>0)  then   //é«˜ä½å‹çŠ¶æ€ï¼Œ1é«˜å‹ï¼Œ0ä½å‹
               begin
                 HYParaInfo.HYStatus.Pressure_HiLow[i]:=1;
               end   else
@@ -878,7 +878,7 @@ begin
                 HYParaInfo.HYStatus.Pressure_HiLow[i]:=0;
               end;
 
-              if (HYStatus and $00F0)<>0 then    //ÂËÓÍÆ÷×´Ì¬
+              if (HYStatus and $00F0)<>0 then    //æ»¤æ²¹å™¨çŠ¶æ€
               begin
                  HYParaInfo.HYStatus.Oil_Filter_Status[i]:=(HYStatus and $00F0) SHR 4;
               end   else
@@ -891,7 +891,7 @@ begin
 
       end else
       begin
-        //¶ÁÈ¡´íÎó
+        //è¯»å–é”™è¯¯
         ParaInfo.NetPara.ReadErrNum:=ParaInfo.NetPara.ReadErrNum+1;
         IdModBus_To_PLC.Disconnect;
       //  if ParaInfo.NetPara.ReadErrNum>3 then
@@ -901,14 +901,14 @@ begin
         end;
       end;
     end;
-    CommFunc_SetCMD:        //ÉèÖÃÓÍÔ´¶¯×÷Ö¸Áî
+    CommFunc_SetCMD:        //è®¾ç½®æ²¹æºåŠ¨ä½œæŒ‡ä»¤
     begin
 
-      //Á¬Ğø´«ËÍÖ¸Áî3´ÎºóÇå³ı£¬
-      if HYSetCMD_En then   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+      //è¿ç»­ä¼ é€æŒ‡ä»¤3æ¬¡åæ¸…é™¤ï¼Œ
+      if HYSetCMD_En then   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
       begin
 
-        if ModBusTcpSetHYACT(ParaInfo.PumpNum) then    //Ö¸Áî´«ËÍÕıÈ·
+        if ModBusTcpSetHYACT(ParaInfo.PumpNum) then    //æŒ‡ä»¤ä¼ é€æ­£ç¡®
         begin
           HYSetCMD_En:=False;
           HYSetCMD_Num:=0;
@@ -940,14 +940,14 @@ begin
   end;
 end;
 
-//=======Í¨¹ıModbusTCPĞ­ÒéÏòFatekPLC·¢Ö¸Áî  Í¨Ñ¶·¢Æğ£¬Master$
+//=======é€šè¿‡ModbusTCPåè®®å‘FatekPLCå‘æŒ‡ä»¤  é€šè®¯å‘èµ·ï¼ŒMaster$
 
 //-----
 Procedure TMainForm.Comm2PLC() ;
 var
 i:integer;
 begin
-  //Ã»ÓĞÖ¸ÁîÏÂ´«Ê±£¬·¢¶ÁÈ¡ÓÍÔ´×´Ì¬Ö¸Áî
+  //æ²¡æœ‰æŒ‡ä»¤ä¸‹ä¼ æ—¶ï¼Œå‘è¯»å–æ²¹æºçŠ¶æ€æŒ‡ä»¤
   CommFunc:=(CommFunc+1) mod 2;
   case CommFunc of
     CommFunc_GetPara:
@@ -958,8 +958,8 @@ begin
     begin
 
       FatekPLCForm.SetHYACT(1) ;
-      //Á¬Ğø´«ËÍÖ¸Áî3´ÎºóÇå³ı£¬
-      if HYSetCMD_En then   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
+      //è¿ç»­ä¼ é€æŒ‡ä»¤3æ¬¡åæ¸…é™¤ï¼Œ
+      if HYSetCMD_En then   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
       begin
         HYSetCMD_Num:=HYSetCMD_Num+1;
         if HYSetCMD_Num>3 then
@@ -988,7 +988,7 @@ var
   I: Integer;
 begin
 
-//ÓëÓÍÔ´Í¨Ñ¶
+//ä¸æ²¹æºé€šè®¯
 
   case ParaInfo.CommType of
   COMMTYPE_COM:
@@ -1005,7 +1005,7 @@ begin
     begin
       ParaInfo.NetPara.Connected:=False;
     end;
-    //¸ù¾İÁ¬½Ó×´Ì¬ÏÔÊ¾
+    //æ ¹æ®è¿æ¥çŠ¶æ€æ˜¾ç¤º
     if ParaInfo.NetPara.Connected then
     begin
       mainForm.CommSta_Shape1.Brush.Color:=ClGreen;
@@ -1018,8 +1018,8 @@ begin
 
   end;
 
-  //ÓëÓÍÔ´Í¨Ñ¶
-   DispAllHYPara();   //ÏÔÊ¾ÓÍÔ´¸÷²ÎÊı
+  //ä¸æ²¹æºé€šè®¯
+   DispAllHYPara();   //æ˜¾ç¤ºæ²¹æºå„å‚æ•°
 
 
 end;

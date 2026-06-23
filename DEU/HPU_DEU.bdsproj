@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">W32ResourceDLL.Personality</Option>
+			<Option Name="ProjectType">ResourceDLL</Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{3DB770F9-5EF4-4B45-B7ED-E799552190A4}</Option>
+		</Option>
+	</PersonalityInfo>
+	<W32ResourceDLL.Personality>
+		<Source>
+			<Source Name="MainSource">HPU.dpr</Source>
+		</Source>
+		<Options>
+			<Options Name="BaseLang">2052</Options>
+			<Options Name="TargetName">..\Win32\Release\HPU.ENU</Options>
+			<Options Name="BRCC_IncludePath"></Options>
+			<Options Name="Company"></Options>
+			<Options Name="Configuration"></Options>
+			<Options Name="Copyright"></Options>
+			<Options Name="Description"></Options>
+			<Options Name="Trademark"></Options>
+			<Options Name="Product"></Options>
+			<Options Name="ProductVersion"></Options>
+			<Options Name="Title"></Options>
+			<Options Name="FileVersion"></Options>
+			<Options Name="Evidence"></Options>
+			<Options Name="KeyFile"></Options>
+			<Options Name="KeyName"></Options>
+		</Options>
+		<FileList><File FileName="About.dfm" ContainerId="W32Form" ModuleName="About.dfm"/><File FileName="FatekPLC.dfm" ContainerId="W32Form" ModuleName="FatekPLC.dfm"/><File FileName="Main.dfm" ContainerId="W32Form" ModuleName="Main.dfm"/><File FileName="ParaSet.dfm" ContainerId="W32Form" ModuleName="ParaSet.dfm"/><File FileName="Win32\Debug\HPU_DRC.rc" ContainerId="W32RC" ModuleName="HPU_DRC.rc"/><File FileName="Win32\Release\HPU_DRC.rc" ContainerId="W32RC" ModuleName="HPU_DRC.rc"/></FileList></W32ResourceDLL.Personality>
+</BorlandProject>

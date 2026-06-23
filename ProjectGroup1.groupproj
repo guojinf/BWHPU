@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F602A9E7-F869-4E8F-9320-892FE9CADCA3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="HPU.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ENU\HPU_ENU.bdsproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CHS\HPU_CHS.bdsproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DEU\HPU_DEU.bdsproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="HPU">
+        <MSBuild Projects="HPU.dproj"/>
+    </Target>
+    <Target Name="HPU:Clean">
+        <MSBuild Projects="HPU.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HPU:Make">
+        <MSBuild Projects="HPU.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="HPU_ENU">
+        <MSBuild Projects="ENU\HPU_ENU.bdsproj"/>
+    </Target>
+    <Target Name="HPU_ENU:Clean">
+        <MSBuild Projects="ENU\HPU_ENU.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HPU_ENU:Make">
+        <MSBuild Projects="ENU\HPU_ENU.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="HPU_CHS">
+        <MSBuild Projects="CHS\HPU_CHS.bdsproj"/>
+    </Target>
+    <Target Name="HPU_CHS:Clean">
+        <MSBuild Projects="CHS\HPU_CHS.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HPU_CHS:Make">
+        <MSBuild Projects="CHS\HPU_CHS.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="HPU_DEU">
+        <MSBuild Projects="DEU\HPU_DEU.bdsproj"/>
+    </Target>
+    <Target Name="HPU_DEU:Clean">
+        <MSBuild Projects="DEU\HPU_DEU.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HPU_DEU:Make">
+        <MSBuild Projects="DEU\HPU_DEU.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="HPU;HPU_ENU;HPU_CHS;HPU_DEU"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="HPU:Clean;HPU_ENU:Clean;HPU_CHS:Clean;HPU_DEU:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="HPU:Make;HPU_ENU:Make;HPU_CHS:Make;HPU_DEU:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

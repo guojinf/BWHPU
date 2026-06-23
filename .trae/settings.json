@@ -1,0 +1,24 @@
+{
+  "files.encoding": "gbk",
+  "[pascal]": {
+    "files.encoding": "gbk",
+    "editor.tokenColorCustomizations": {
+      "keywords": "#0000FF",
+      "strings": "#008000",
+      "comments": "#808080",
+      "numbers": "#800080",
+      "types": "#00FFFF",
+      "functions": "#795E26",
+      "variables": "#001080"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "keywords": "#0000FF",
+    "strings": "#008000",
+    "comments": "#808080",
+    "numbers": "#800080",
+    "types": "#00FFFF",
+    "functions": "#795E26",
+    "variables": "#001080"
+  }
+}

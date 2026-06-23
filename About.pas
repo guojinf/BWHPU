@@ -1,4 +1,4 @@
-unit About;
+ï»¿unit About;
 
 interface
 
@@ -24,55 +24,55 @@ implementation
 
 {$R *.dfm}
 
-Function TAboutForm.GetBuildInfo: string; //»ñÈ¡°æ±¾ºÅ
+Function TAboutForm.GetBuildInfo: string; //è·å–ç‰ˆæœ¬å·
 
 var
 
-¡¡verinfosize : DWORD;
+ã€€verinfosize : DWORD;
 
-¡¡verinfo : pointer;
+ã€€verinfo : pointer;
 
-¡¡vervaluesize : dword;
+ã€€vervaluesize : dword;
 
-¡¡vervalue : pvsfixedfileinfo;
+ã€€vervalue : pvsfixedfileinfo;
 
-¡¡dummy : dword;
+ã€€dummy : dword;
 
-¡¡v1,v2,v3,v4 : word;
+ã€€v1,v2,v3,v4 : word;
 
 begin
 
-¡¡verinfosize := getfileversioninfosize(pchar(paramstr(0)),dummy);
+ã€€verinfosize := getfileversioninfosize(pchar(paramstr(0)),dummy);
 
-¡¡if verinfosize = 0 then begin
+ã€€if verinfosize = 0 then begin
 
-¡¡¡¡dummy := getlasterror;
+ã€€ã€€dummy := getlasterror;
 
-¡¡¡¡result := '0.0.0.0';
+ã€€ã€€result := '0.0.0.0';
 
-¡¡end;
+ã€€end;
 
-¡¡getmem(verinfo,verinfosize);
+ã€€getmem(verinfo,verinfosize);
 
-¡¡getfileversioninfo(pchar(paramstr(0)),0,verinfosize,verinfo);
+ã€€getfileversioninfo(pchar(paramstr(0)),0,verinfosize,verinfo);
 
-¡¡verqueryvalue(verinfo,'\',pointer(vervalue),vervaluesize);
+ã€€verqueryvalue(verinfo,'\',pointer(vervalue),vervaluesize);
 
-¡¡with vervalue^ do begin
+ã€€with vervalue^ do begin
 
-¡¡¡¡v1 := dwfileversionms shr 16;
+ã€€ã€€v1 := dwfileversionms shr 16;
 
-¡¡¡¡v2 := dwfileversionms and $ffff;
+ã€€ã€€v2 := dwfileversionms and $ffff;
 
-¡¡¡¡v3 := dwfileversionls shr 16;
+ã€€ã€€v3 := dwfileversionls shr 16;
 
-¡¡¡¡v4 := dwfileversionls and $ffff;
+ã€€ã€€v4 := dwfileversionls and $ffff;
 
-¡¡end;
+ã€€end;
 
-¡¡result := inttostr(v1) + '.' + inttostr(v2) + '.' + inttostr(v3) + '.' + inttostr(v4);
+ã€€result := inttostr(v1) + '.' + inttostr(v2) + '.' + inttostr(v3) + '.' + inttostr(v4);
 
-¡¡freemem(verinfo,verinfosize);
+ã€€freemem(verinfo,verinfosize);
 
 end;
 
