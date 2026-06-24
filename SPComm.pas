@@ -1,6 +1,6 @@
-ï»¿unit SPComm;
+unit SPComm;
 //{$WARN SYMBOL_DEPRECATED OFF}
-//ï¿½pï¿½Uï¿½G
+//¦p¤U¡G
 // This Communications Component is implemented using separate Read and Write
 // threads. Messages from the threads are posted to the Comm control which is
 // an invisible window. To handle data from the comm port, simply
@@ -66,7 +66,7 @@
 //                 - Modify some error from source code,and can send data without
 //                   lose any byte.Modified some error about the SENDEMPTY property,
 ////                   so it can be checked in applicaiton.
-//  2017-11-07      - ï¿½Þ¸Ä³ï¿½Ö§ï¿½ï¿½XE10.2ï¿½ï¿½ï¿½Þ¸ï¿½PCharÎªPAnsiChar
+//  2017-11-07      - ÐÞ¸Ä³ÉÖ§³ÖXE10.2£¬ÐÞ¸ÄPCharÎªPAnsiChar
 
 {$DEFINE W_PANSICHAR}
 {$IFDEF W_PANSICHAR}
@@ -76,7 +76,7 @@
 interface
 
 uses
-    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+    Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs;
 
 const
      // messages from read/write threads
@@ -336,13 +336,13 @@ begin
      FWriteTotalTimeoutConstant   := 0;
 
      if not (csDesigning in ComponentState) then
-        FHWnd := AllocateHWnd(CommWndProc)
+        FHWnd := Classes.AllocateHWnd(CommWndProc)
 end;
 
 destructor TComm.Destroy;
 begin
      if not (csDesigning in ComponentState) then
-        DeallocateHWnd(FHwnd);
+        Classes.DeallocateHWnd(FHwnd);
 
      inherited Destroy;
 end;
@@ -382,7 +382,7 @@ begin
      if Length(FCommName) < 5 then
         FCommName := FCommName
      else
-        FCommName := '\\.\' + FCommName;  //Ö§ï¿½Ö´ï¿½COM10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½       //2017.07.01  steedsky    20190119
+        FCommName := '\\.\' + FCommName;  //Ö§³Ö´ò¿ªCOM10¼°ÒÔÉÏ       //2017.07.01  steedsky    20190119
 
      hNewCommFile := CreateFile( PChar(FCommName),
                                  GENERIC_READ or GENERIC_WRITE,
@@ -1203,7 +1203,7 @@ begin
 
      // Start waiting for Read events.
      if not SetupReadEvent( @overlappedRead,
-                          //  @szInputBuffer, INPUTBUFFERSIZE,            //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½æ»»Îªï¿½ï¿½Ò»ï¿½ï¿½ 20190119
+                          //  @szInputBuffer, INPUTBUFFERSIZE,            //µ±Ç°ÐÐÌæ»»ÎªÏÂÒ»ÐÐ 20190119
                             PAnsiChar(@szInputBuffer), INPUTBUFFERSIZE,
                             nNumberOfBytesRead ) then
         goto EndReadThread;
@@ -1239,7 +1239,7 @@ begin
                begin
                     // Get the new data!
                     if not HandleReadEvent( @overlappedRead,
-//                                            @szInputBuffer,     //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½æ»»Îªï¿½ï¿½Ò»ï¿½ï¿½   20190119
+//                                            @szInputBuffer,     //µ±Ç°ÐÐÌæ»»ÎªÏÂÒ»ÐÐ   20190119
                                             PAnsiChar(@szInputBuffer),
                                             INPUTBUFFERSIZE,
                                             nNumberOfBytesRead ) then
@@ -1247,7 +1247,7 @@ begin
 
                     // Wait for more new data.
                     if not SetupReadEvent( @overlappedRead,
-                                          // @szInputBuffer,      //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½æ»»Îªï¿½ï¿½Ò»ï¿½ï¿½   20190119
+                                          // @szInputBuffer,      //µ±Ç°ÐÐÌæ»»ÎªÏÂÒ»ÐÐ   20190119
                                            PAnsiChar(@szInputBuffer),
                                            INPUTBUFFERSIZE,
                                            nNumberOfBytesRead ) then

@@ -1,13 +1,13 @@
-ï»¿unit ModBusTcp_C;
+unit ModBusTcp_C;
 
 interface
 
-    //ä»¥ä¸‹å‡½æ•°ä¸ºMODBUS/TCPç”¨
-    Function  MT_Connect():boolean;  //  ModBus/TCPå»ºç«‹è¿žæŽ¥
+    //ÒÔÏÂº¯ÊýÎªMODBUS/TCPÓÃ
+    Function  MT_Connect():boolean;  //  ModBus/TCP½¨Á¢Á¬½Ó
 
 implementation
 
-Function  MT_Connect():boolean;  //  ModBus/TCPå»ºç«‹è¿žæŽ¥
+Function  MT_Connect():boolean;  //  ModBus/TCP½¨Á¢Á¬½Ó
 begin
   //
   result:=False;

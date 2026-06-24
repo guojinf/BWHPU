@@ -1,58 +1,78 @@
 object MainForm: TMainForm
   Left = 100
   Top = 100
+  Margins.Left = 5
+  Margins.Top = 5
+  Margins.Right = 5
+  Margins.Bottom = 5
   BorderWidth = 2
   Caption = 'POPWIL_HPU'
-  ClientHeight = 211
-  ClientWidth = 301
+  ClientHeight = 317
+  ClientWidth = 452
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu1
-  OldCreateOrder = False
   Position = poDesigned
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 144
+  TextHeight = 21
   object Bevel1: TBevel
     Tag = 255
     Left = 0
-    Top = 24
-    Width = 745
-    Height = 1
+    Top = 36
+    Width = 1118
+    Height = 2
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
   end
   object CommSta_Shape1: TShape
     Tag = 255
-    Left = 8
-    Top = -4
-    Width = 12
-    Height = 22
+    Left = 12
+    Top = -6
+    Width = 18
+    Height = 33
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Brush.Color = clActiveBorder
+    Pen.Width = 2
     Shape = stCircle
   end
   object Panel1: TPanel
     Tag = 255
-    Left = 8
-    Top = 24
-    Width = 705
-    Height = 202
+    Left = 12
+    Top = 36
+    Width = 1058
+    Height = 303
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     TabOrder = 0
     object GroupBox1: TGroupBox
       Tag = 255
       Left = 0
       Top = 0
-      Width = 192
-      Height = 193
+      Width = 288
+      Height = 290
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Color = clBtnFace
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentBackground = False
@@ -61,169 +81,254 @@ object MainForm: TMainForm
       TabOrder = 0
       object ResetSta_Shape: TShape
         Tag = 255
-        Left = 102
-        Top = 17
-        Width = 30
-        Height = 22
+        Left = 153
+        Top = 26
+        Width = 45
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clGreen
+        Pen.Width = 2
         Shape = stCircle
         Visible = False
       end
       object Label1: TLabel
-        Left = 16
-        Top = 61
-        Width = 24
-        Height = 13
+        Left = 24
+        Top = 92
+        Width = 38
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Filter'
       end
       object Filter_Shape1: TShape
         Tag = 255
-        Left = 69
-        Top = 56
-        Width = 12
-        Height = 22
+        Left = 104
+        Top = 84
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clGreen
+        Pen.Width = 2
         Shape = stCircle
       end
       object Filter_Shape2: TShape
         Tag = 255
-        Left = 87
-        Top = 56
-        Width = 12
-        Height = 22
+        Left = 131
+        Top = 84
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clGreen
+        Pen.Width = 2
         Shape = stCircle
         Visible = False
       end
       object Filter_Shape3: TShape
         Tag = 255
-        Left = 105
-        Top = 56
-        Width = 12
-        Height = 22
+        Left = 158
+        Top = 84
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clGreen
+        Pen.Width = 2
         Shape = stCircle
         Visible = False
       end
       object Filter_Shape4: TShape
         Tag = 255
-        Left = 123
-        Top = 56
-        Width = 12
-        Height = 22
+        Left = 185
+        Top = 84
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clGreen
+        Pen.Width = 2
         Shape = stCircle
         Visible = False
       end
       object Label2: TLabel
-        Left = 72
-        Top = 45
-        Width = 6
-        Height = 13
+        Left = 108
+        Top = 68
+        Width = 9
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = '1'
       end
       object Label3: TLabel
-        Left = 90
-        Top = 45
-        Width = 6
-        Height = 13
+        Left = 135
+        Top = 68
+        Width = 9
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = '2'
         Visible = False
       end
       object Label4: TLabel
-        Left = 108
-        Top = 45
-        Width = 6
-        Height = 13
+        Left = 162
+        Top = 68
+        Width = 9
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = '3'
         Visible = False
       end
       object Label5: TLabel
-        Left = 126
-        Top = 45
-        Width = 6
-        Height = 13
+        Left = 189
+        Top = 68
+        Width = 9
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = '4'
         Visible = False
       end
       object PressureCaptionLabel: TLabel
-        Left = 16
-        Top = 93
-        Width = 42
-        Height = 13
+        Left = 24
+        Top = 140
+        Width = 64
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Pressure'
       end
       object PressureUnitLabel: TLabel
         Tag = 255
-        Left = 152
-        Top = 85
-        Width = 20
-        Height = 13
+        Left = 228
+        Top = 128
+        Width = 31
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'MPa'
       end
       object TemprUnitLabel: TLabel
         Tag = 255
-        Left = 152
-        Top = 115
-        Width = 12
-        Height = 13
+        Left = 228
+        Top = 173
+        Width = 18
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #176'C'
       end
       object TemprCaptionLabel: TLabel
-        Left = 16
-        Top = 112
-        Width = 30
-        Height = 13
+        Left = 24
+        Top = 168
+        Width = 47
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Temp.'
       end
       object HYLUnitLabel: TLabel
         Tag = 255
-        Left = 152
-        Top = 134
-        Width = 11
-        Height = 13
+        Left = 228
+        Top = 201
+        Width = 17
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = '%'
       end
       object HYLCaptionLabel: TLabel
-        Left = 16
-        Top = 134
-        Width = 25
-        Height = 13
+        Left = 24
+        Top = 201
+        Width = 38
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Level'
       end
       object QUnitLabel: TLabel
         Tag = 255
-        Left = 152
-        Top = 153
-        Width = 25
-        Height = 13
+        Left = 228
+        Top = 230
+        Width = 42
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'L/min'
       end
       object QCaptionLabel: TLabel
-        Left = 16
-        Top = 156
-        Width = 22
-        Height = 13
+        Left = 24
+        Top = 234
+        Width = 35
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Flow'
       end
       object Label14: TLabel
         Tag = 255
-        Left = 40
-        Top = -16
-        Width = 37
-        Height = 13
+        Left = 60
+        Top = -24
+        Width = 57
+        Height = 21
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Label14'
       end
       object PressureEdit: TEdit
         Tag = 255
-        Left = 66
-        Top = 84
-        Width = 69
-        Height = 27
+        Left = 99
+        Top = 126
+        Width = 104
+        Height = 37
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Color = clInfoBk
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
-        Font.Height = -19
+        Font.Height = -29
         Font.Name = #23435#20307
         Font.Style = [fsBold]
         ParentFont = False
@@ -233,14 +338,18 @@ object MainForm: TMainForm
       end
       object TemprEdit: TEdit
         Tag = 255
-        Left = 66
-        Top = 108
-        Width = 69
-        Height = 27
+        Left = 99
+        Top = 162
+        Width = 104
+        Height = 37
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Color = clInfoBk
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
-        Font.Height = -19
+        Font.Height = -29
         Font.Name = #23435#20307
         Font.Style = [fsBold]
         ParentFont = False
@@ -250,14 +359,18 @@ object MainForm: TMainForm
       end
       object HYLEdit: TEdit
         Tag = 255
-        Left = 66
-        Top = 130
-        Width = 69
-        Height = 27
+        Left = 99
+        Top = 195
+        Width = 104
+        Height = 37
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Color = clInfoBk
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
-        Font.Height = -19
+        Font.Height = -29
         Font.Name = #23435#20307
         Font.Style = [fsBold]
         ParentFont = False
@@ -267,14 +380,18 @@ object MainForm: TMainForm
       end
       object QEdit: TEdit
         Tag = 255
-        Left = 66
-        Top = 152
-        Width = 69
-        Height = 27
+        Left = 99
+        Top = 228
+        Width = 104
+        Height = 37
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Color = clInfoBk
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
-        Font.Height = -19
+        Font.Height = -29
         Font.Name = #23435#20307
         Font.Style = [fsBold]
         ParentFont = False
@@ -283,15 +400,19 @@ object MainForm: TMainForm
         Text = '3.0'
       end
       object ResetPanel: TPanel
-        Left = 40
-        Top = 14
-        Width = 105
-        Height = 25
+        Left = 60
+        Top = 21
+        Width = 158
+        Height = 38
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         BorderStyle = bsSingle
         Caption = 'Reset/All Stop'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -11
+        Font.Height = -17
         Font.Name = #21326#25991#20013#23435
         Font.Style = []
         ParentBackground = False
@@ -301,234 +422,358 @@ object MainForm: TMainForm
       end
     end
     object PumpGroupBox1: TGroupBox
-      Left = 183
+      Left = 275
       Top = 0
-      Width = 114
-      Height = 193
+      Width = 171
+      Height = 290
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Pump1'
       TabOrder = 1
       object PumpON_SpeedButton1: TSpeedButton
-        Left = 15
-        Top = 68
-        Width = 65
-        Height = 22
+        Left = 23
+        Top = 102
+        Width = 97
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Pump ON'
         OnClick = PumpON_SpeedButton1Click
       end
       object PumpOFF_SpeedButton1: TSpeedButton
-        Left = 15
-        Top = 96
-        Width = 65
-        Height = 22
+        Left = 23
+        Top = 144
+        Width = 97
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Pump OFF'
         OnClick = PumpOFF_SpeedButton1Click
       end
       object PressureHI_SpeedButton1: TSpeedButton
-        Left = 15
-        Top = 124
-        Width = 65
-        Height = 22
+        Left = 23
+        Top = 186
+        Width = 97
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'High'
         OnClick = PressureHI_SpeedButton1Click
       end
       object PressureLow_SpeedButton1: TSpeedButton
-        Left = 15
-        Top = 152
-        Width = 65
-        Height = 22
+        Left = 23
+        Top = 228
+        Width = 97
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = 'Low'
         OnClick = PressureLow_SpeedButton1Click
       end
       object PumpSta_Shape1: TShape
         Tag = 255
-        Left = 86
-        Top = 68
-        Width = 12
-        Height = 22
+        Left = 129
+        Top = 102
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
       object PressureSta_Shape1: TShape
         Tag = 255
-        Left = 86
-        Top = 124
-        Width = 12
-        Height = 22
+        Left = 129
+        Top = 186
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
     end
     object PumpGroupBox2: TGroupBox
-      Left = 286
+      Left = 429
       Top = 0
-      Width = 138
-      Height = 193
+      Width = 207
+      Height = 290
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = #27833#27893'2'
       TabOrder = 2
       Visible = False
       object PumpON_SpeedButton2: TSpeedButton
-        Left = 24
-        Top = 68
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 102
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#24320
       end
       object PumpOFF_SpeedButton2: TSpeedButton
-        Left = 24
-        Top = 96
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 144
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#20851
       end
       object PressureHI_SpeedButton2: TSpeedButton
-        Left = 24
-        Top = 124
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 186
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #39640#21387
       end
       object PressureLow_SpeedButton2: TSpeedButton
-        Left = 24
-        Top = 152
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 228
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #20302#21387
       end
       object PumpSta_Shape2: TShape
         Tag = 255
-        Left = 109
-        Top = 68
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 102
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
       object PressureSta_Shape2: TShape
         Tag = 255
-        Left = 109
-        Top = 124
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 186
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
     end
     object PumpGroupBox3: TGroupBox
-      Left = 423
+      Left = 635
       Top = 0
-      Width = 138
-      Height = 193
+      Width = 207
+      Height = 290
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = #27833#27893'3'
       TabOrder = 3
       Visible = False
       object PumpON_SpeedButton3: TSpeedButton
-        Left = 24
-        Top = 68
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 102
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#24320
       end
       object PumpOFF_SpeedButton3: TSpeedButton
-        Left = 24
-        Top = 96
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 144
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#20851
       end
       object PressureHI_SpeedButton3: TSpeedButton
-        Left = 24
-        Top = 124
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 186
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #39640#21387
       end
       object PressureLow_SpeedButton3: TSpeedButton
-        Left = 24
-        Top = 152
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 228
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #20302#21387
       end
       object PumpSta_Shape3: TShape
         Tag = 255
-        Left = 109
-        Top = 68
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 102
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
       object PressureSta_Shape3: TShape
         Tag = 255
-        Left = 109
-        Top = 124
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 186
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
     end
     object PumpGroupBox4: TGroupBox
-      Left = 567
+      Left = 851
       Top = 0
-      Width = 138
-      Height = 193
+      Width = 207
+      Height = 290
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = #27833#27893'4'
       TabOrder = 4
       Visible = False
       object PumpON_SpeedButton4: TSpeedButton
-        Left = 24
-        Top = 68
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 102
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#24320
       end
       object PumpOFF_SpeedButton4: TSpeedButton
-        Left = 24
-        Top = 96
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 144
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #27833#27893#20851
       end
       object PressureHI_SpeedButton4: TSpeedButton
-        Left = 24
-        Top = 124
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 186
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #39640#21387
       end
       object PressureLow_SpeedButton4: TSpeedButton
-        Left = 24
-        Top = 152
-        Width = 65
-        Height = 22
+        Left = 36
+        Top = 228
+        Width = 98
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Caption = #20302#21387
       end
       object PumpSta_Shape4: TShape
         Tag = 255
-        Left = 109
-        Top = 68
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 102
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
       object PressureSta_Shape4: TShape
         Tag = 255
-        Left = 109
-        Top = 124
-        Width = 12
-        Height = 22
+        Left = 164
+        Top = 186
+        Width = 18
+        Height = 33
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
         Brush.Color = clRed
+        Pen.Width = 2
         Shape = stCircle
       end
     end
   end
   object Button1: TButton
-    Left = 232
-    Top = -1
-    Width = 56
-    Height = 26
+    Left = 348
+    Top = -2
+    Width = 84
+    Height = 40
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Button1'
     TabOrder = 1
     Visible = False
@@ -614,7 +859,6 @@ object MainForm: TMainForm
   object IdModBus_To_PLC: TIdModBusClient
     Tag = 255
     ConnectTimeout = 3000
-    IPVersion = Id_IPv4
     ReadTimeout = 3000
     TimeOut = 3000
     Left = 120

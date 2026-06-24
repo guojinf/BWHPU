@@ -1,46 +1,65 @@
 object ParaSetForm: TParaSetForm
   Left = 0
   Top = 0
+  Margins.Left = 5
+  Margins.Top = 5
+  Margins.Right = 5
+  Margins.Bottom = 5
   Caption = 'HPS CONFIG'
-  ClientHeight = 243
-  ClientWidth = 472
+  ClientHeight = 365
+  ClientWidth = 717
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   OnShow = FormShow
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 144
+  TextHeight = 21
   object NetGroupBox: TGroupBox
-    Left = 207
-    Top = 8
-    Width = 185
-    Height = 152
+    Left = 311
+    Top = 12
+    Width = 277
+    Height = 228
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Net para'
     TabOrder = 3
     object Label6: TLabel
-      Left = 24
-      Top = 32
-      Width = 35
-      Height = 13
+      Left = 36
+      Top = 48
+      Width = 55
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Dest IP'
     end
     object Label7: TLabel
-      Left = 24
-      Top = 56
-      Width = 27
-      Height = 13
+      Left = 36
+      Top = 84
+      Width = 42
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'PORT'
     end
     object IPPortComboBox: TComboBox
       Tag = 255
-      Left = 66
-      Top = 56
-      Width = 103
-      Height = 21
+      Left = 99
+      Top = 84
+      Width = 155
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 0
       Text = '502'
       Items.Strings = (
@@ -49,14 +68,18 @@ object ParaSetForm: TParaSetForm
     end
     object IPMaskEdit: TMaskEdit
       Tag = 255
-      Left = 66
-      Top = 31
-      Width = 103
-      Height = 19
+      Left = 99
+      Top = 47
+      Width = 155
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       EditMask = '999.999.999.999;1;_'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = #23435#20307
       Font.Style = []
       MaxLength = 15
@@ -66,53 +89,81 @@ object ParaSetForm: TParaSetForm
     end
   end
   object ComGroupBox: TGroupBox
-    Left = 208
-    Top = 8
-    Width = 185
-    Height = 152
+    Left = 312
+    Top = 12
+    Width = 278
+    Height = 228
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Com para'
     TabOrder = 2
     object Label1: TLabel
-      Left = 16
-      Top = 24
-      Width = 21
-      Height = 13
+      Left = 24
+      Top = 36
+      Width = 33
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Com'
     end
     object Label2: TLabel
-      Left = 16
-      Top = 52
-      Width = 17
-      Height = 13
+      Left = 24
+      Top = 78
+      Width = 27
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Bps'
     end
     object Label3: TLabel
-      Left = 14
-      Top = 78
-      Width = 38
-      Height = 13
+      Left = 21
+      Top = 117
+      Width = 60
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Data bit'
     end
     object Label4: TLabel
-      Left = 14
-      Top = 105
-      Width = 29
-      Height = 13
+      Left = 21
+      Top = 158
+      Width = 44
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Check'
     end
     object Label5: TLabel
-      Left = 14
-      Top = 131
-      Width = 37
-      Height = 13
+      Left = 21
+      Top = 197
+      Width = 57
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'Stop bit'
     end
     object SelCom_ComboBox: TComboBox
       Tag = 255
-      Left = 64
-      Top = 21
-      Width = 86
-      Height = 21
+      Left = 96
+      Top = 32
+      Width = 129
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 0
       Text = 'Com1'
       Items.Strings = (
@@ -125,10 +176,14 @@ object ParaSetForm: TParaSetForm
     end
     object BpsComboBox: TComboBox
       Tag = 255
-      Left = 64
-      Top = 48
-      Width = 86
-      Height = 21
+      Left = 96
+      Top = 72
+      Width = 129
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 1
       Text = '9600'
       Items.Strings = (
@@ -150,10 +205,14 @@ object ParaSetForm: TParaSetForm
     end
     object DataBitComboBox: TComboBox
       Tag = 255
-      Left = 64
-      Top = 75
-      Width = 86
-      Height = 21
+      Left = 96
+      Top = 113
+      Width = 129
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 2
       Text = '8'
       Items.Strings = (
@@ -164,10 +223,14 @@ object ParaSetForm: TParaSetForm
     end
     object ParityComboBox: TComboBox
       Tag = 255
-      Left = 64
-      Top = 102
-      Width = 86
-      Height = 21
+      Left = 96
+      Top = 153
+      Width = 129
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 3
       Text = '0'
       Items.Strings = (
@@ -179,10 +242,14 @@ object ParaSetForm: TParaSetForm
     end
     object StopBitComboBox: TComboBox
       Tag = 255
-      Left = 64
-      Top = 128
-      Width = 86
-      Height = 21
+      Left = 96
+      Top = 192
+      Width = 129
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 4
       Text = '1'
       Items.Strings = (
@@ -192,25 +259,37 @@ object ParaSetForm: TParaSetForm
     end
   end
   object GroupBox1: TGroupBox
-    Left = 8
-    Top = 8
-    Width = 193
-    Height = 65
+    Left = 12
+    Top = 12
+    Width = 290
+    Height = 98
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'HPS PARA'
     TabOrder = 0
     object Label8: TLabel
-      Left = 11
-      Top = 24
-      Width = 51
-      Height = 13
+      Left = 17
+      Top = 36
+      Width = 77
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Caption = 'HPS Count'
     end
     object Pump_Num_ComboBox: TComboBox
       Tag = 255
-      Left = 80
-      Top = 21
-      Width = 65
-      Height = 21
+      Left = 120
+      Top = 32
+      Width = 98
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       TabOrder = 0
       Text = '1'
       Items.Strings = (
@@ -224,36 +303,52 @@ object ParaSetForm: TParaSetForm
     end
   end
   object PumpCheckBox1: TCheckBox
-    Left = 8
-    Top = 166
-    Width = 201
-    Height = 17
+    Left = 12
+    Top = 249
+    Width = 302
+    Height = 26
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'All pump off when exit'#65292'Be Careful'#65281
     TabOrder = 1
   end
   object OKButton: TButton
-    Left = 118
-    Top = 200
-    Width = 75
-    Height = 25
+    Left = 177
+    Top = 300
+    Width = 113
+    Height = 38
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Apply'
     TabOrder = 4
     OnClick = OKButtonClick
   end
   object CancelButton: TButton
-    Left = 271
-    Top = 200
-    Width = 75
-    Height = 25
+    Left = 407
+    Top = 300
+    Width = 112
+    Height = 38
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Exit'
     TabOrder = 5
     OnClick = CancelButtonClick
   end
   object CommTypeRadioGroup1: TRadioGroup
-    Left = 8
-    Top = 82
-    Width = 194
-    Height = 78
+    Left = 12
+    Top = 123
+    Width = 291
+    Height = 117
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Caption = 'Select'
     Items.Strings = (
       'COM'

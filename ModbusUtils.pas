@@ -1,4 +1,4 @@
-﻿{===============================================================================
+{===============================================================================
 
 The contents of this file are subject to the Mozilla Public License Version 1.1
 (the "License"); you may not use this file except in compliance with the
@@ -41,7 +41,7 @@ procedure PutRegistersIntoBuffer(const Buffer: PWord; const Count: Word; const D
 implementation
 
 uses
-  System.SysUtils;
+  SysUtils;
 
 const
   CRC16Table: array[0..255] of Word = (

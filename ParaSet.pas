@@ -1,11 +1,11 @@
-ï»¿unit ParaSet;
+unit ParaSet;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask,Vardef,TypeDef,
-  Vcl.ExtCtrls,System.Math,FileFunc;
+  Vcl.ExtCtrls,Math,FileFunc;
 
 type
   TParaSetForm = class(TForm)
@@ -59,11 +59,11 @@ end;
 procedure TParaSetForm.CommTypeRadioGroup1Click(Sender: TObject);
 begin
   case CommTypeRadioGroup1.ItemIndex of
-    0:begin    //ï¿½ï¿½ï¿½ï¿½
+    0:begin    //´®¿Ú
       ComGroupBox.Visible:= True;
       NetGroupBox.Visible:= False;
     end;
-    1:begin     //ï¿½ï¿½ï¿½ï¿½
+    1:begin     //Íø¿Ú
       ComGroupBox.Visible:= False;
       NetGroupBox.Visible:= True;
     end;
@@ -103,17 +103,17 @@ procedure TParaSetForm.OKButtonClick(Sender: TObject);
 var
 i:integer;
 begin
-  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+  //¸÷²ÎÊý¸³Öµ
   With ParaInfo do
   begin
-    ParaInfo.PumpNum:=StrToInt(Pump_Num_ComboBox.Text); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    //ParaInfo.PLCType:=StrToInt         //ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    PLCï¿½ï¿½ï¿½ï¿½
-    ParaInfo.PumpOff_ATSoftColse_EN:=PumpCheckBox1.Checked; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í±Ã£ï¿½1ï¿½ï¿½
-    //ParaInfo.ParaDispEN[i]:=        //ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
-    //ParaInfo.ParaDispAdd[i]:=       //ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½      ï¿½ï¿½PLCï¿½ÐµÄµï¿½Ö·
+    ParaInfo.PumpNum:=StrToInt(Pump_Num_ComboBox.Text); //±ÃÊýÁ¿
+    //ParaInfo.PLCType:=StrToInt         //ÎÄ±¾ÖÐÉèÖÃ    PLCÀàÐÍ
+    ParaInfo.PumpOff_ATSoftColse_EN:=PumpCheckBox1.Checked; //¹ØÈí¼þÊÇ·ñ¹ØÓÍ±Ã£¬1¹Ø
+    //ParaInfo.ParaDispEN[i]:=        //ÎÄ±¾ÖÐÉèÖÃ  ÊÇ·ñÏÔÊ¾²ÎÊý
+    //ParaInfo.ParaDispAdd[i]:=       //ÎÄ±¾ÖÐÉèÖÃ      ÔÚPLCÖÐµÄµØÖ·
 
     //Comm232para
-    ParaInfo.CommType:=CommTypeRadioGroup1.ItemIndex;   //ï¿½ï¿½ï¿½ï¿½Í¨Ñ¶ï¿½ï¿½Ê½
+    ParaInfo.CommType:=CommTypeRadioGroup1.ItemIndex;   //ÄÄÖÖÍ¨Ñ¶·½Ê½
     ParaInfo.ComPara.ComPort := TComPortNumber((SelCom_ComboBox.ItemIndex));
     ParaInfo.ComPara.ComPortSpeed := TComPortBaudRate(BpsComboBox.ItemIndex);
     ParaInfo.ComPara.ComPortDataBits := TComPortDataBits(DataBitComboBox.ItemIndex );
@@ -122,7 +122,7 @@ begin
     //netpara
     ParaInfo.NetPara.IPAddr := IPMaskEdit.Text;
     ParaInfo.NetPara.Port := StrToInt(IPPortComboBox.Text);
-   // ParaInfo.NetPara.ProtocolType := StrToInt(          //ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Í¨Ñ¶Ð­ï¿½ï¿½
+   // ParaInfo.NetPara.ProtocolType := StrToInt(          //ÔÚÎÄ±¾ÖÐÉèÖÃ Í¨Ñ¶Ð­Òé
     if ParaInfo.commType=COMMTYPE_COM then
     begin
       ParaInfo.ComPara.Enable:=True;

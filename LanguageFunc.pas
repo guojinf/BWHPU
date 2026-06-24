@@ -1,10 +1,10 @@
 unit LanguageFunc;
 
 interface
-uses Winapi.Windows,System.Win.ComObj,Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,System.IniFiles,
- Vcl.Controls,Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls,Vcl.Buttons, Vcl.ExtCtrls,Vcl.Menus, Winapi.MMSystem,
- Vcl.ActnList,
- Vcl.ToolWin,main;
+uses Windows,ComObj,Messages, SysUtils, Variants, Classes, Graphics,IniFiles,
+ Controls,Forms,Dialogs, ComCtrls, StdCtrls,Buttons, ExtCtrls,Menus, mmSystem,
+ ActnList,
+  ToolWin,main;
 
 //Procedure GetLanguageInfo();
 //Procedure SetLanguageInfo(LangType:integer);
@@ -167,8 +167,8 @@ begin
           if TCustomAction(Component).Hint<>'' then
             WriteString(TRANS_SECTION, Id + HINT, TCustomAction(Component).Hint);
           {$ELSE}
-          TCustomAction(Component).Caption := ReadString(TRANS_SECTION, Id + CAPTION, TCustomAction(Component).Caption);
-          TCustomAction(Component).Hint := ReadString(TRANS_SECTION, Id + HINT, TCustomAction(Component).Hint);
+          TCustomAction(Component).Caption := ReadString(TRANS_SECTION, CAPTION, TCustomAction(Component).Caption);
+          TCustomAction(Component).Hint := ReadString(TRANS_SECTION, ID + HINT, TCustomAction(Component).Hint);
           {$ENDIF}
           Continue;
         end;
@@ -180,8 +180,8 @@ begin
           if TOpenDialog(Component).Title<>'' then
           WriteString(TRANS_SECTION, Id + 'Title', TOpenDialog(Component).Title);
           {$ELSE}
-          TOpenDialog(Component).Filter := ReadString(TRANS_SECTION, Id + 'Filter', TOpenDialog(Component).Filter);
-          TOpenDialog(Component).Title := ReadString(TRANS_SECTION, Id + 'Title', TOpenDialog(Component).Title);
+          TOpenDialog(Component).Filter := ReadString(TRANS_SECTION, ID + HINT, TOpenDialog(Component).Filter);
+          TOpenDialog(Component).Title := ReadString(TRANS_SECTION, CAPTION, TOpenDialog(Component).Title);
           {$ENDIF}
         end;
       end;  //end for j := 0 to Screen.Forms[i].ComponentCount - 1 do ///遍历窗体所有组件
