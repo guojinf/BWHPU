@@ -1,6 +1,6 @@
-unit SPComm;
+ï»¿unit SPComm;
 //{$WARN SYMBOL_DEPRECATED OFF}
-//¦p¤U¡G
+//î›–î—»î“
 // This Communications Component is implemented using separate Read and Write
 // threads. Messages from the threads are posted to the Comm control which is
 // an invisible window. To handle data from the comm port, simply
@@ -66,7 +66,7 @@ unit SPComm;
 //                 - Modify some error from source code,and can send data without
 //                   lose any byte.Modified some error about the SENDEMPTY property,
 ////                   so it can be checked in applicaiton.
-//  2017-11-07      - ĞŞ¸Ä³ÉÖ§³ÖXE10.2£¬ĞŞ¸ÄPCharÎªPAnsiChar
+//  2017-11-07      - ä¿®æ”¹æˆæ”¯æŒXE10.2ï¼Œä¿®æ”¹PCharä¸ºPAnsiChar
 
 {$DEFINE W_PANSICHAR}
 {$IFDEF W_PANSICHAR}
@@ -382,7 +382,7 @@ begin
      if Length(FCommName) < 5 then
         FCommName := FCommName
      else
-        FCommName := '\\.\' + FCommName;  //Ö§³Ö´ò¿ªCOM10¼°ÒÔÉÏ       //2017.07.01  steedsky    20190119
+        FCommName := '\\.\' + FCommName;  //æ”¯æŒæ‰“å¼€COM10åŠä»¥ä¸Š       //2017.07.01  steedsky    20190119
 
      hNewCommFile := CreateFile( PChar(FCommName),
                                  GENERIC_READ or GENERIC_WRITE,
@@ -1203,7 +1203,7 @@ begin
 
      // Start waiting for Read events.
      if not SetupReadEvent( @overlappedRead,
-                          //  @szInputBuffer, INPUTBUFFERSIZE,            //µ±Ç°ĞĞÌæ»»ÎªÏÂÒ»ĞĞ 20190119
+                          //  @szInputBuffer, INPUTBUFFERSIZE,            //å½“å‰è¡Œæ›¿æ¢ä¸ºä¸‹ä¸€è¡Œ 20190119
                             PAnsiChar(@szInputBuffer), INPUTBUFFERSIZE,
                             nNumberOfBytesRead ) then
         goto EndReadThread;
@@ -1239,7 +1239,7 @@ begin
                begin
                     // Get the new data!
                     if not HandleReadEvent( @overlappedRead,
-//                                            @szInputBuffer,     //µ±Ç°ĞĞÌæ»»ÎªÏÂÒ»ĞĞ   20190119
+//                                            @szInputBuffer,     //å½“å‰è¡Œæ›¿æ¢ä¸ºä¸‹ä¸€è¡Œ   20190119
                                             PAnsiChar(@szInputBuffer),
                                             INPUTBUFFERSIZE,
                                             nNumberOfBytesRead ) then
@@ -1247,7 +1247,7 @@ begin
 
                     // Wait for more new data.
                     if not SetupReadEvent( @overlappedRead,
-                                          // @szInputBuffer,      //µ±Ç°ĞĞÌæ»»ÎªÏÂÒ»ĞĞ   20190119
+                                          // @szInputBuffer,      //å½“å‰è¡Œæ›¿æ¢ä¸ºä¸‹ä¸€è¡Œ   20190119
                                            PAnsiChar(@szInputBuffer),
                                            INPUTBUFFERSIZE,
                                            nNumberOfBytesRead ) then

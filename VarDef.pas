@@ -1,4 +1,4 @@
-unit VarDef;
+ï»¿unit VarDef;
 
 interface
   uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
@@ -12,10 +12,10 @@ interface
   PStr_Send2PLC:PAnsiChar;
   HYParaInfo:THYParaInfo;
   CommFunc:Integer;
-  HYSetCMD_En:boolean;   //Ö¸ÁîÓĞ±ä£¬¿ªÊ¼´«ËÍ
-  HYSetCMD_Num:Integer; //Á¬Ğø´«ËÍÖ¸Áî´ÎÊı
+  HYSetCMD_En:boolean;   //æŒ‡ä»¤æœ‰å˜ï¼Œå¼€å§‹ä¼ é€
+  HYSetCMD_Num:Integer; //è¿ç»­ä¼ é€æŒ‡ä»¤æ¬¡æ•°
 
-  //¶àÓïÑÔ
+  //å¤šè¯­è¨€
 // LangInfo:TLangInfo;
   msgStr:Array[1..10] of String;
    LanguageFileName:String;

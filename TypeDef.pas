@@ -1,24 +1,24 @@
-unit TypeDef;
+ï»¿unit TypeDef;
 
 interface
 
 Const
-  //PLCÀàĞÍ ²»Í¬³§¼ÒÍ¨Ñ¶Ğ­ÒéÓĞ¿ÉÄÜ²»Í¬
+  //PLCç±»å‹ ä¸åŒå‚å®¶é€šè®¯åè®®æœ‰å¯èƒ½ä¸åŒ
   PLCTYPE_NONE = 0 ;
   PLCTYPE_FATEK = 1 ;
   PLCTYPE_SIMENS = 2 ;
-  //Í¨Ñ¶Ğ­Òé
+  //é€šè®¯åè®®
   PROTOCOL_NONE = 0;
   PROTOCOL_MODBUS_RTU = 1;
   PROTOCOL_MODBUS_ASCII = 2;
   PROTOCOL_MODBUSTCP_RTU = 3;
   PROTOCOL_MODBUSTCP_ASCII = 4;
-  PROTOCOL_FATEK =5 ; //ÓÀºê×Ô¼ºµÄĞ­Òé
-  //0 ´®¿ÚÍ¨Ñ¶ 1 Íø¿ÚÍ¨Ñ¶
+  PROTOCOL_FATEK =5 ; //æ°¸å®è‡ªå·±çš„åè®®
+  //0 ä¸²å£é€šè®¯ 1 ç½‘å£é€šè®¯
   COMMTYPE_COM =0;
   COMMTYPE_NET =1;
   BufferLength_Send2PLC=128;
-  //Ö¸ÁîÀà±ğ
+  //æŒ‡ä»¤ç±»åˆ«
   CommFunc_GetPara =0;
   CommFunc_SetCMD =1;
 
@@ -30,11 +30,11 @@ Const
 
   RECONNECTCOUNTCONST=5;
 
-  MAXLANGSNUM=10;  //Èí¼şÖĞÓÃµ½µÄ¶àÓïÑÔString ÊıÁ¿
+  MAXLANGSNUM=10;  //è½¯ä»¶ä¸­ç”¨åˆ°çš„å¤šè¯­è¨€String æ•°é‡
 
-LANGUAGEFILE_C='HPULangChinese.ini';   //ÖĞÎÄ
-LANGUAGEFILE_E='HPULangEnglish.ini';   //Ó¢Óï
-LANGUAGEFILE_O='HPULangOthers.ini';   //ÆäËü
+LANGUAGEFILE_C='HPULangChinese.ini';   //ä¸­æ–‡
+LANGUAGEFILE_E='HPULangEnglish.ini';   //è‹±è¯­
+LANGUAGEFILE_O='HPULangOthers.ini';   //å…¶å®ƒ
 
 LANGUAGEFILE_D='HPULangDefault.ini';
 
@@ -65,39 +65,39 @@ Type
   TComPortSwHandshaking = ( shNONE, shXONXOFF );
 
   TComPara =  record
-  //´®¿Ú²ÎÊı  ´®¿ÚºÅ£¬²¨ÌØÂÊ£¬Êı¾İÎ»£¬Ğ£Ñé·½Ê½£¬Í£Ö¹Î»£¬Ğ­Òé
+  //ä¸²å£å‚æ•°  ä¸²å£å·ï¼Œæ³¢ç‰¹ç‡ï¼Œæ•°æ®ä½ï¼Œæ ¡éªŒæ–¹å¼ï¼Œåœæ­¢ä½ï¼Œåè®®
     Name:string;
     MODBusType:char;  //M S
-    Enable:boolean;     //´®¿ÚÊ¹ÄÜ
-    ComPort:TComPortNumber;     //´®¿ÚºÅ
-    BaseADD:WORD;               //»ùµØÖ· £¬´®¿Ú²»ÓÃ
-    ID:Byte;                     // ËùÁ¬Éè±¸ID
-    ComPortSpeed:TComPortBaudRate;  //²¨ÌØÂÊ
-    ComPortDataBits:TComPortDataBits;  //Êı¾İÎ»Êı
-    ComPortParity:TComPortParity;        //Ğ£Ñé·½Ê½
-    ComPortStopBits:TComPortStopBits;   //Í£Ö¹Î» 1£¬1.5£¬2
-    ProtocolType:Byte; //Í¨Ñ¶Ğ­Òé
+    Enable:boolean;     //ä¸²å£ä½¿èƒ½
+    ComPort:TComPortNumber;     //ä¸²å£å·
+    BaseADD:WORD;               //åŸºåœ°å€ ï¼Œä¸²å£ä¸ç”¨
+    ID:Byte;                     // æ‰€è¿è®¾å¤‡ID
+    ComPortSpeed:TComPortBaudRate;  //æ³¢ç‰¹ç‡
+    ComPortDataBits:TComPortDataBits;  //æ•°æ®ä½æ•°
+    ComPortParity:TComPortParity;        //æ ¡éªŒæ–¹å¼
+    ComPortStopBits:TComPortStopBits;   //åœæ­¢ä½ 1ï¼Œ1.5ï¼Œ2
+    ProtocolType:Byte; //é€šè®¯åè®®
   end;
 
    TNetPara = record
-    //Íø¿Ú²ÎÊı  ·şÎñÆ÷IPµØÖ·£¬¶Ë¿ÚºÅ£¬Ğ­Òé£¬
-    IPAddr:String; //IPµØÖ·
-    Port: Word; //¶Ë¿ÚºÅ
-    ProtocolType:Byte; //Ğ­Òé
+    //ç½‘å£å‚æ•°  æœåŠ¡å™¨IPåœ°å€ï¼Œç«¯å£å·ï¼Œåè®®ï¼Œ
+    IPAddr:String; //IPåœ°å€
+    Port: Word; //ç«¯å£å·
+    ProtocolType:Byte; //åè®®
     ReConnectCount:Byte;
     ReadErrNum:byte;
-    Connected:Boolean; //Á¬ÉÏÎªTrue£¬Ã»Á¬ÉÏÎªFalse
+    Connected:Boolean; //è¿ä¸Šä¸ºTrueï¼Œæ²¡è¿ä¸Šä¸ºFalse
   end;
 
   TParaInfo = record
-    ComPara:TComPara;  //´®¿Ú²ÎÊı
-    NetPara:TNetPara;  //Íø¿Ú²ÎÊı
-    CommType:Byte; //Í¨Ñ¶¿ÚÑ¡Ôñ   ´®¿ÚORÍø¿Ú
-    PumpOff_ATSoftColse_EN:Boolean; //¹ØÈí¼şÊÇ·ñ¹Ø±Ã
-    ParaDispEN:array[0..10] of Boolean; //Ñ¹Á¦¡¢ÎÂ¶È¡¢ÒºÎ»¡¢Á÷Á¿ÏÔÊ¾ÄÄ¼¸ÖÖ ,ÎªTrueÊ±ÏÔÊ¾
-    ParaDispAdd:array[0..10] of Integer; //Ñ¹Á¦¡¢ÎÂ¶È¡¢ÒºÎ»¡¢Á÷Á¿ ÔÚPLCÖĞËùÔÚµÄµØÖ·
-    PLCType:Byte;  // PLCÀàĞÍ 0ÎŞ£¬1Fatek 2
-    PumpNum:Byte; //±ÃµÄÊıÁ¿
+    ComPara:TComPara;  //ä¸²å£å‚æ•°
+    NetPara:TNetPara;  //ç½‘å£å‚æ•°
+    CommType:Byte; //é€šè®¯å£é€‰æ‹©   ä¸²å£ORç½‘å£
+    PumpOff_ATSoftColse_EN:Boolean; //å…³è½¯ä»¶æ˜¯å¦å…³æ³µ
+    ParaDispEN:array[0..10] of Boolean; //å‹åŠ›ã€æ¸©åº¦ã€æ¶²ä½ã€æµé‡æ˜¾ç¤ºå“ªå‡ ç§ ,ä¸ºTrueæ—¶æ˜¾ç¤º
+    ParaDispAdd:array[0..10] of Integer; //å‹åŠ›ã€æ¸©åº¦ã€æ¶²ä½ã€æµé‡ åœ¨PLCä¸­æ‰€åœ¨çš„åœ°å€
+    PLCType:Byte;  // PLCç±»å‹ 0æ— ï¼Œ1Fatek 2
+    PumpNum:Byte; //æ³µçš„æ•°é‡
 
   end;
 
@@ -105,21 +105,21 @@ Type
     Pump_OnOff : array[0..10] of Byte;
     Pressure_HiLow : array[0..10] of Byte;
     CoolPump_OnOff : array[0..10] of Byte;
-    Oil_Filter_Status: array[0..10] of Byte;                   //Îª0Õı³££¬²»Îª0¶ÂÈû
-    Pressure: array[0..10] of Integer;    //Ñ¹Á¦
-    Pressure_AnsiStr: array[0..10] of AnsiString;    //Ñ¹Á¦
-    Tempr: array[0..10] of Integer;   //ÎÂ¶È
-    Tempr_AnsiStr: array[0..10] of AnsiString; //ÎÂ¶È
-    Level_YW : array[0..10] of Integer; //ÒºÎ»
-    LEvel_YW_AnsiStr: array[0..10] of AnsiString; //ÒºÎ»
-    Flow_L:  array[0..10] of Integer; //Á÷Á¿
-    Flow_L_AnsiStr:  array[0..10] of AnsiString; //Á÷Á¿
+    Oil_Filter_Status: array[0..10] of Byte;                   //ä¸º0æ­£å¸¸ï¼Œä¸ä¸º0å µå¡
+    Pressure: array[0..10] of Integer;    //å‹åŠ›
+    Pressure_AnsiStr: array[0..10] of AnsiString;    //å‹åŠ›
+    Tempr: array[0..10] of Integer;   //æ¸©åº¦
+    Tempr_AnsiStr: array[0..10] of AnsiString; //æ¸©åº¦
+    Level_YW : array[0..10] of Integer; //æ¶²ä½
+    LEvel_YW_AnsiStr: array[0..10] of AnsiString; //æ¶²ä½
+    Flow_L:  array[0..10] of Integer; //æµé‡
+    Flow_L_AnsiStr:  array[0..10] of AnsiString; //æµé‡
   End;
   THYCMD = Record
-    Pump_OnOff : array[0..10] of Byte;    //ÓÍ±ÃÆôÍ£Ö¸Áî
-    Pressure_HiLow : array[0..10] of Byte;   //¸ßµÍÑ¹Ö¸Áî
-    CoolPump_OnOff : array[0..10] of Byte;    //ÀäÈ´Ö¸Áî£¬Î´ÓÃ
-    Reset_All: Byte;  //¸´Î»È«Í£ Ö¸Áî
+    Pump_OnOff : array[0..10] of Byte;    //æ²¹æ³µå¯åœæŒ‡ä»¤
+    Pressure_HiLow : array[0..10] of Byte;   //é«˜ä½å‹æŒ‡ä»¤
+    CoolPump_OnOff : array[0..10] of Byte;    //å†·å´æŒ‡ä»¤ï¼Œæœªç”¨
+    Reset_All: Byte;  //å¤ä½å…¨åœ æŒ‡ä»¤
   End;
 
   THYParaInfo = Record

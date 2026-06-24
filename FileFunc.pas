@@ -1,5 +1,5 @@
-unit FileFunc;
-  //ÏµÍ³ÅäÖÃÎÄ¼şÓÃIniFiles ÎÄ¼ş¸ñÊ½±£´æ
+ï»¿unit FileFunc;
+  //ç³»ç»Ÿé…ç½®æ–‡ä»¶ç”¨IniFiles æ–‡ä»¶æ ¼å¼ä¿å­˜
 interface
 uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
 Vcl.Graphics,Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.Menus,
@@ -7,9 +7,9 @@ Vcl.Graphics,Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.Menus,
 
 
 Function IntTo2Str(n:integer):string;
- //µ±Str²»µ½Len³¤¶ÈÊ±£¬ÔÚStrÇ°Ãæ×Ô¶¯Ìî³äFillStrÒÔ²¹×ã³¤¶È
+ //å½“Strä¸åˆ°Lené•¿åº¦æ—¶ï¼Œåœ¨Strå‰é¢è‡ªåŠ¨å¡«å……FillSträ»¥è¡¥è¶³é•¿åº¦
   Function FillString_Start(Const Str:String;Len:integer;FillStr:Char):string; //
-  //µ±Str²»µ½Len³¤¶ÈÊ±£¬ÔÚStrºóÃæ×Ô¶¯Ìî³äFillStrÒÔ²¹×ã³¤¶È
+  //å½“Strä¸åˆ°Lené•¿åº¦æ—¶ï¼Œåœ¨Stråé¢è‡ªåŠ¨å¡«å……FillSträ»¥è¡¥è¶³é•¿åº¦
   Function FillString_END(Const Str:String;Len:integer;FillStr:Char):string; //
 
 
@@ -17,13 +17,13 @@ Function IntTo2Str(n:integer):string;
   procedure SaveCommInitFile(InitFileName:String;TempInitInfo:TCommInitInfo);
   Function  OpenCommInitFile(InitFileName:string):TCommInitInfo;
 
-  Procedure SaveParaIniFile(InitFileName:String;TempInitInfo:TParaInfo); //ÓÃiniFiles
-  Function OpenParaIniFile(InitFileName:String):TParaInfo;   //ÓÃiniFiles
+  Procedure SaveParaIniFile(InitFileName:String;TempInitInfo:TParaInfo); //ç”¨iniFiles
+  Function OpenParaIniFile(InitFileName:String):TParaInfo;   //ç”¨iniFiles
 
 
 implementation
 
-Procedure SaveParaIniFile(InitFileName:String;TempInitInfo:TParaInfo); //ÓÃiniFiles
+Procedure SaveParaIniFile(InitFileName:String;TempInitInfo:TParaInfo); //ç”¨iniFiles
 Var
 IniFile:TIniFile;
 TmpStr:String;
@@ -37,7 +37,7 @@ Begin
       //-----Para
       IniFile.WriteInteger('PARA','CommType',TempInitInfo.CommType);
       IniFile.WriteBool('PARA','PumpOff_ATSoftColse_EN',TempInitInfo.PumpOff_ATSoftColse_EN);
-      for i := 1 to 4 do   //ÒªÏÔÊ¾µÄ²ÎÊı¼°ËùÔÚPLCµÄµØÖ·
+      for i := 1 to 4 do   //è¦æ˜¾ç¤ºçš„å‚æ•°åŠæ‰€åœ¨PLCçš„åœ°å€
         begin
           IniFile.WriteBool('PARA','ParaDispEN'+IntToStr(i),TempInitInfo.ParaDispEN[i]);
           IniFile.WriteInteger('PARA','ParaDispAdd'+IntToStr(i),TempInitInfo.ParaDispAdd[i]);
@@ -79,7 +79,7 @@ Begin
 End;
 
 
-Function OpenParaIniFile(InitFileName:String):TParaInfo;   //ÓÃiniFiles
+Function OpenParaIniFile(InitFileName:String):TParaInfo;   //ç”¨iniFiles
 Var
 IniFile:TIniFile;
 TmpStr:String;
@@ -131,7 +131,7 @@ begin
     Except
       On EconvertError do
       begin
-        ShowMessage(InitFileName+'´ò¿ªÎÄ¼ş´íÎó!');
+        ShowMessage(InitFileName+'æ‰“å¼€æ–‡ä»¶é”™è¯¯!');
       end;
 
     End;
@@ -194,12 +194,12 @@ begin
 
           Writeln(InitFile, 'end        ');
           except
-          ShowMessage(InitFileName+'ÎÄ¼ş´íÎó!');
+          ShowMessage(InitFileName+'æ–‡ä»¶é”™è¯¯!');
           closefile(InitFile);
           end;
           end;
   closefile(InitFile);
-  filesetAttr(InitFileName,faReadOnly); //Ö»¶ÁÊôĞÔ
+  filesetAttr(InitFileName,faReadOnly); //åªè¯»å±æ€§
 end;
 
 Function  OpenCommInitFile(InitFileName:string):TCommInitInfo;
@@ -287,7 +287,7 @@ try
 except
   On EconvertError do
   begin
-  ShowMessage(InitFileName+'´ò¿ªÎÄ¼ş´íÎó!');
+  ShowMessage(InitFileName+'æ‰“å¼€æ–‡ä»¶é”™è¯¯!');
   closefile(InitFile);
   end;
 end;

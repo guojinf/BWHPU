@@ -1,4 +1,4 @@
-object AboutForm: TAboutForm
+﻿object AboutForm: TAboutForm
   Left = 0
   Top = 0
   Caption = 'About'

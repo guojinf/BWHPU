@@ -1,24 +1,24 @@
-unit FatekPLC;
-{ // ÓëFatekPLCÍ¨Ñ¶
- //ÏÖÎª¼òÒ×Ä£Ê½£¬´ıÀ©Õ¹
- //Ğ´ÈëPLCÖ¸Áî   ÔİĞ´µØÖ·ÎªR1000~R1001
- // R1000 || Bit0:¿ª±Ã1£¬bit1:¹Ø±Ã1 bit2:¸ßÑ¹1£¬bit3: µÍÑ¹1, bit4:¸´Î»
- //R1001 ÒÑĞ´¹¦ÄÜÔ¤Áô£¬PLC R1000~R1199ÎªPCĞ´ÈëÇøÔ¤Áô
- //R1002 ±Ã2Ö¸Áî
- //R1003 ±Ã3Ö¸Áî
- //R1004 ±Ã4Ö¸Áî
- //R1005 ±Ã5Ö¸Áî
- //R1006 ±Ã6Ö¸Áî
+ï»¿unit FatekPLC;
+{ // ä¸FatekPLCé€šè®¯
+ //ç°ä¸ºç®€æ˜“æ¨¡å¼ï¼Œå¾…æ‰©å±•
+ //å†™å…¥PLCæŒ‡ä»¤   æš‚å†™åœ°å€ä¸ºR1000~R1001
+ // R1000 || Bit0:å¼€æ³µ1ï¼Œbit1:å…³æ³µ1 bit2:é«˜å‹1ï¼Œbit3: ä½å‹1, bit4:å¤ä½
+ //R1001 å·²å†™åŠŸèƒ½é¢„ç•™ï¼ŒPLC R1000~R1199ä¸ºPCå†™å…¥åŒºé¢„ç•™
+ //R1002 æ³µ2æŒ‡ä»¤
+ //R1003 æ³µ3æŒ‡ä»¤
+ //R1004 æ³µ4æŒ‡ä»¤
+ //R1005 æ³µ5æŒ‡ä»¤
+ //R1006 æ³µ6æŒ‡ä»¤
 
- // ¶ÁPLC²ÎÊı  Ôİ¶ÁµØÖ·ÎªR1100~R1105 Ã¿ÔöÒ»±ÃÊ±Ó¦¸ÃÔö¶ÁÒ»×Ö
- //R1100 || bit0:ÓÍÔ´1×´Ì¬£¬bit1£¬bit2, bit3:±Ã1¸ßÑ¹×´Ì¬ £¬bit4-Bit7:ÂËÓÍÆ÷×´Ì¬
- //R1101 ÔİÔ¤Áô
- //R1102~R1105 ·Ö±ğÎªÑ¹Á¦£¬ÎÂ¶È£¬ÒºÎ»£¬Á÷Á¿Öµ
- //R1106 ±Ã2×´Ì¬
- //R1107 ±Ã3×´Ì¬
- //R1108 ±Ã4×´Ì¬
-  //R1109 ±Ã5×´Ì¬
- //R1110 ±Ã6×´Ì¬
+ // è¯»PLCå‚æ•°  æš‚è¯»åœ°å€ä¸ºR1100~R1105 æ¯å¢ä¸€æ³µæ—¶åº”è¯¥å¢è¯»ä¸€å­—
+ //R1100 || bit0:æ²¹æº1çŠ¶æ€ï¼Œbit1ï¼Œbit2, bit3:æ³µ1é«˜å‹çŠ¶æ€ ï¼Œbit4-Bit7:æ»¤æ²¹å™¨çŠ¶æ€
+ //R1101 æš‚é¢„ç•™
+ //R1102~R1105 åˆ†åˆ«ä¸ºå‹åŠ›ï¼Œæ¸©åº¦ï¼Œæ¶²ä½ï¼Œæµé‡å€¼
+ //R1106 æ³µ2çŠ¶æ€
+ //R1107 æ³µ3çŠ¶æ€
+ //R1108 æ³µ4çŠ¶æ€
+  //R1109 æ³µ5çŠ¶æ€
+ //R1110 æ³µ6çŠ¶æ€
 
 
 
@@ -38,7 +38,7 @@ type
     { Public declarations }
     Function  PLCCOMInit(ComPortInfo:TComPara ):boolean;
     Procedure PLCCOMDefault( );
-    Procedure PLCCOMFree(); //PLC´®¿ÚÊÍ·Å
+    Procedure PLCCOMFree(); //PLCä¸²å£é‡Šæ”¾
     Function SendData2Plc(DataPtr:PansiChar;DataLen:integer;FUNCode:byte):boolean;
     Function ReadFromPlc_MR(PLCID:Byte;FUNCode:Byte;ADDR_Start:AnsiString;REG_Num:Byte):boolean;
     Function ReadFromPlc(PLCID:Byte;FUNCode:Byte;ADDR_Start:AnsiString;REG_Num:Byte):boolean;
@@ -60,7 +60,7 @@ implementation
 uses main;
 
 {$R *.dfm}
-//--------¶ÁÈ¡ÓÍÔ´²ÎÊıÖ¸Áî
+//--------è¯»å–æ²¹æºå‚æ•°æŒ‡ä»¤
 Function TFatekPLCForm.GetHYStatus(PumpNum:Byte):Boolean;
 Var
 tmpData2PLC:AnsiString;
@@ -69,16 +69,16 @@ REGNUM:Byte;
 ADDR_ST:AnsiString;
 FatekFunc:Byte;
 begin
-  //¶Á R1100~R1105 ¹²6¸öWord
+  //è¯» R1100~R1105 å…±6ä¸ªWord
   ADDR_ST:='R01100';    //DR01000
-  REGNUM:=6+PumpNum-1;    //6¸öµ¥×Ö  R1100~R1105 Ã¿¶àÒ»¸öÓÍ±Ã£¬ÔöÒ»¸ö×Ö ÏÔÊ¾±ÃµÄ×´Ì¬
+  REGNUM:=6+PumpNum-1;    //6ä¸ªå•å­—  R1100~R1105 æ¯å¤šä¸€ä¸ªæ²¹æ³µï¼Œå¢ä¸€ä¸ªå­— æ˜¾ç¤ºæ³µçš„çŠ¶æ€
   FatekFunc:=$46;
   Result:=ReadFromPlc_MR(ParaInfo.ComPara.ID,FatekFunc,ADDR_ST,REGNum);
 end;
-//=========¶ÁÈ¡ÓÍÔ´²ÎÊıÖ¸Áî
+//=========è¯»å–æ²¹æºå‚æ•°æŒ‡ä»¤
 
-//------ParaInfo.PumpNum  ±ÃµÄÊıÁ¿
-//Éè¶¨ÓÍÔ´ÔËĞĞ£¬Ğ´PLC
+//------ParaInfo.PumpNum  æ³µçš„æ•°é‡
+//è®¾å®šæ²¹æºè¿è¡Œï¼Œå†™PLC
 Function TFatekPLCForm.SetHYACT(PumpNum:Byte):Boolean;
 Var
 tmpData2PLC:AnsiString;
@@ -90,10 +90,10 @@ ADDR_ST:AnsiString;
 i:byte;
 begin
   // R1000
-  //0Î»£º±Ã1¿ª£»1Î»£º±Ã1¹Ø£»2Î»£º¸ßÑ¹£»3Î»£ºµÍÑ¹£»4Î»£º¸´Î»
-  //  15 14 13 12Î»£º 1010 Ö¸ÁîÓĞĞ§  8Î»£ºÔÚ»ØÁãÖ¸Áî½ø£¬ÔİÎªDIR,¼´³õÊ¼»ØÁã·½Ïò£¬¿É²»ÓÃ
+  //0ä½ï¼šæ³µ1å¼€ï¼›1ä½ï¼šæ³µ1å…³ï¼›2ä½ï¼šé«˜å‹ï¼›3ä½ï¼šä½å‹ï¼›4ä½ï¼šå¤ä½
+  //  15 14 13 12ä½ï¼š 1010 æŒ‡ä»¤æœ‰æ•ˆ  8ä½ï¼šåœ¨å›é›¶æŒ‡ä»¤è¿›ï¼Œæš‚ä¸ºDIR,å³åˆå§‹å›é›¶æ–¹å‘ï¼Œå¯ä¸ç”¨
   ADDR_ST:='R01000';    //DR01000
-  REGNUM:=2+PumpNum-1;    //Á½¸öµ¥×Ö  R1000 R1001
+  REGNUM:=2+PumpNum-1;    //ä¸¤ä¸ªå•å­—  R1000 R1001
   //SFFunc:= dir shl 8;
    tmpData2PLC:='';
   for i := 1 to PumpNum do
@@ -115,7 +115,7 @@ end;
 
 //==========
 
-//----Fatek ¶ÁÈ¡PLCÖĞµÄÊı¾İ
+//----Fatek è¯»å–PLCä¸­çš„æ•°æ®
 Function TFatekPLCForm.ReadFromPlc(PLCID:Byte;FUNCode:Byte;ADDR_Start:AnsiString;REG_Num:Byte):boolean;
 Var
   tmpStr:AnsiString;
@@ -123,42 +123,42 @@ Var
   DataPtr:PAnsiChar;
 begin
   result:=False;
-  Case FunCode of     //ËùÓĞ¶ÁÖ¸Áî
-    $40:   //PLC¸ÅÂÔÏµÍ³×´Ì¬¶ÁÈ¡
+  Case FunCode of     //æ‰€æœ‰è¯»æŒ‡ä»¤
+    $40:   //PLCæ¦‚ç•¥ç³»ç»ŸçŠ¶æ€è¯»å–
       begin
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode]));
         DataPtr:=PAnsiChar(tmpStr);
         Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
       end;
-    $43:   //¶à¸öÁ¬Ğøµ¥µãµÄÒÖ/ÖÂÄÜ×´Ì¬¶ÁÈ¡
-      begin      //ADDR_Start:µ¥µãµØÖ·'Y0010' 5Î»
+    $43:   //å¤šä¸ªè¿ç»­å•ç‚¹çš„æŠ‘/è‡´èƒ½çŠ¶æ€è¯»å–
+      begin      //ADDR_Start:å•ç‚¹åœ°å€'Y0010' 5ä½
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode])+Format('%.2x',[REG_Num]))+ADDR_Start;
         DataPtr:=PAnsiChar(tmpStr);
         Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
       end;
-    $44:  //¶à¸öÁ¬Ğøµ¥µã×´Ì¬¶ÁÈ¡
-      begin   //ADDR_Start:µ¥µãµØÖ·'Y0010' 5Î»
+    $44:  //å¤šä¸ªè¿ç»­å•ç‚¹çŠ¶æ€è¯»å–
+      begin   //ADDR_Start:å•ç‚¹åœ°å€'Y0010' 5ä½
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode])+Format('%.2x',[REG_Num]))+ADDR_Start;
         DataPtr:=PAnsiChar(tmpStr);
         Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
       end;
-    $46: //¶à¸öÁ¬Ğø»º´æÆ÷Êı¾İ¶ÁÈ¡
+    $46: //å¤šä¸ªè¿ç»­ç¼“å­˜å™¨æ•°æ®è¯»å–
       begin
         ReadFromPlc_MR(PLCID,FUNCode,ADDR_Start,REG_Num);
       end;
-    $48:  //¶à¸öÈÎÒâµ¥µã×´Ì¬»ò»º´æÆ÷Êı¾İ»ìºÏ¶ÁÈ¡  //REG_NUM:01H--40H
-      begin   //Î»µØÖ·£º5Î»£»×ÖµØÖ·£º6Î»£¬Ë«×ÖµØÖ·£º7Î» £¬ADDR_Start:Ó¦¸ÃÊÇËùÓĞµÄµØÖ·
+    $48:  //å¤šä¸ªä»»æ„å•ç‚¹çŠ¶æ€æˆ–ç¼“å­˜å™¨æ•°æ®æ··åˆè¯»å–  //REG_NUM:01H--40H
+      begin   //ä½åœ°å€ï¼š5ä½ï¼›å­—åœ°å€ï¼š6ä½ï¼ŒåŒå­—åœ°å€ï¼š7ä½ ï¼ŒADDR_Start:åº”è¯¥æ˜¯æ‰€æœ‰çš„åœ°å€
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode])+Format('%.2x',[REG_Num]))+ADDR_Start;
         DataPtr:=PAnsiChar(tmpStr);
         Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
       end;
-    $4E:  //²âÊÔ»Ø´« ,Ô­ÎÄ·µ»Ø
-      begin   //ADDR_Start Ó¦ÎªÊµ·¢Êı¾İ£¬²»ÊÇµØÖ·
+    $4E:  //æµ‹è¯•å›ä¼  ,åŸæ–‡è¿”å›
+      begin   //ADDR_Start åº”ä¸ºå®å‘æ•°æ®ï¼Œä¸æ˜¯åœ°å€
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode]))+ADDR_Start;
         DataPtr:=PAnsiChar(tmpStr);
         Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
       end;
-    $53: //PLC ÏêÏ¸×´Ì¬
+    $53: //PLC è¯¦ç»†çŠ¶æ€
       begin
         tmpStr:=AnsiString(Format('%.2x',[PLCID])+Format('%.2x',[FUNCode]));
         DataPtr:=PAnsiChar(tmpStr);
@@ -168,10 +168,10 @@ begin
   end;
  // DataPtr:=nil;
 end;
-//=== Fatek ¶ÁÈ¡PLCÖĞµÄÊı¾İ
+//=== Fatek è¯»å–PLCä¸­çš„æ•°æ®
 
-//---¶à¸öÁ¬Ğø»º´æÆ÷¶ÁÈ¡£¬ÃüÁîÂë£º46  //PLCID:Õ¾ºÅ£¬FUNCode:ÃüÁîÂë£»ADDR_Start:ÆğÊ¼µØÖ· REG_Num:Òª¶ÁµÄÊıÁ¿
-//ADDR_Start:ÆğÊ¼»º´æÆ÷ºÅ6Î»'R00012'£»REG_Num:ÊıÁ¿
+//---å¤šä¸ªè¿ç»­ç¼“å­˜å™¨è¯»å–ï¼Œå‘½ä»¤ç ï¼š46  //PLCID:ç«™å·ï¼ŒFUNCode:å‘½ä»¤ç ï¼›ADDR_Start:èµ·å§‹åœ°å€ REG_Num:è¦è¯»çš„æ•°é‡
+//ADDR_Start:èµ·å§‹ç¼“å­˜å™¨å·6ä½'R00012'ï¼›REG_Num:æ•°é‡
 Function TFatekPLCForm.ReadFromPlc_MR(PLCID:Byte;FUNCode:Byte;ADDR_Start:AnsiString;REG_Num:Byte):boolean;
 var
 tmpStr:AnsiString;
@@ -183,10 +183,10 @@ begin
 
   Result:=SendData2Plc(DataPtr1,AnsiStrings.StrLen(DataPtr1),FUNCode);
 end;
-//====¶à¸öÁ¬Ğø»º´æÆ÷¶ÁÈ¡
+//====å¤šä¸ªè¿ç»­ç¼“å­˜å™¨è¯»å–
 
-//---¶à¸öÁ¬Ğø»º´æÆ÷Ğ´Èë£¬ÃüÁîÂë£º47  //PLCID:Õ¾ºÅ£¬FUNCode:ÃüÁîÂë£»
-//ADDR_Start:ÆğÊ¼»º´æÆ÷ºÅ6Î»'R00012'»ò7Î»£¬6Î»Îª×Ö£¬7Î»ÎªË«×Ö£»REG_Num:ÊıÁ¿
+//---å¤šä¸ªè¿ç»­ç¼“å­˜å™¨å†™å…¥ï¼Œå‘½ä»¤ç ï¼š47  //PLCID:ç«™å·ï¼ŒFUNCode:å‘½ä»¤ç ï¼›
+//ADDR_Start:èµ·å§‹ç¼“å­˜å™¨å·6ä½'R00012'æˆ–7ä½ï¼Œ6ä½ä¸ºå­—ï¼Œ7ä½ä¸ºåŒå­—ï¼›REG_Num:æ•°é‡
 Function TFatekPLCForm.WriteToPlc_MR(PLCID:Byte;FUNCode:Byte;ADDR_Start,WRData:AnsiString;REG_Num:Byte):boolean;
 var
 tmpStr:AnsiString;
@@ -198,10 +198,10 @@ begin
   DataPtr:= PAnsiChar(tmpStr);  // @tmpStr[1];
   Result:=SendData2Plc(DataPtr,AnsiStrings.StrLen(DataPtr),FUNCode);
 end;
-//====¶à¸öÁ¬Ğø»º´æÆ÷¶ÁÈ¡
+//====å¤šä¸ªè¿ç»­ç¼“å­˜å™¨è¯»å–
 
-//---·¢ËÍÊı¾İÖÁFatekPLC£¬·¢ÆğÍ¨Ñ¶£¬Ê¹ÓÃFateck×¨ÓÃĞ­Òé£¬Port0¿Ú
-//--DataPtrÖĞÖ»º¬Òª·¢ËÍµÄÊı¾İ£¬²»º¬ÆğÊ¼Âë£¬Ğ£ÑéÂë¼°ÖÕÖ¹Âë£¬ÕâÈıÂëÔÚ´Ëº¯ÊıÖĞ¼ÓÉÏ
+//---å‘é€æ•°æ®è‡³FatekPLCï¼Œå‘èµ·é€šè®¯ï¼Œä½¿ç”¨Fateckä¸“ç”¨åè®®ï¼ŒPort0å£
+//--DataPträ¸­åªå«è¦å‘é€çš„æ•°æ®ï¼Œä¸å«èµ·å§‹ç ï¼Œæ ¡éªŒç åŠç»ˆæ­¢ç ï¼Œè¿™ä¸‰ç åœ¨æ­¤å‡½æ•°ä¸­åŠ ä¸Š
 Function TFatekPLCForm.SendData2Plc(DataPtr:PansiChar;DataLen:integer;FUNCode:byte):boolean;
 var
 tmpData2:PansiChar;
@@ -217,8 +217,8 @@ begin
   tmpresult:=False;
   if (MainForm.PLC_Comm.Handle<>INVALID_HANDLE_VALUE) and ParaInfo.ComPara.Enable then
   begin
-   PEtx :=#03; //½áÊø×Ö·û
-   PStx:=#02; //ÆğÊ¼×Ö·û
+   PEtx :=#03; //ç»“æŸå­—ç¬¦
+   PStx:=#02; //èµ·å§‹å­—ç¬¦
    AnsiStrings.StrCopy(PMemAll.PComSendMem1,PAnsiCHar(PStx));    //   tmpData1
 
    AnsiStrings.StrCat(PMemAll.PComSendMem1,DataPtr);   //   tmpData1
@@ -236,15 +236,15 @@ begin
  end;
    Result:= tmpresult;
 end;
-//=====·¢ËÍÊı¾İ¾­FatekPLC£¬·¢ÆğÍ¨Ñ¶
+//=====å‘é€æ•°æ®ç»FatekPLCï¼Œå‘èµ·é€šè®¯
 
-//-------´ò¿ªPLC´®¿Ú ²¢ÉèÖÃ´®¿Ú²ÎÊı
+//-------æ‰“å¼€PLCä¸²å£ å¹¶è®¾ç½®ä¸²å£å‚æ•°
 Function TFatekPLCForm.PLCCOMInit(ComPortInfo:TComPara ):boolean;
 begin
   //
   MainForm.PLC_Comm.Outx_CtsFlow:=False;
   MainForm.PLC_Comm.Outx_DsrFlow:=False;
-  //ÈçÎª2½øÖÆ£¬ÒÔÏÂÁ½ÏîÒªÉèÎªFalse ,·ñÔòXoffCharºÍXonCharËù¶ÔÓ¦µÄ×Ö·û²»ÄÜ½ÓÊÕ
+  //å¦‚ä¸º2è¿›åˆ¶ï¼Œä»¥ä¸‹ä¸¤é¡¹è¦è®¾ä¸ºFalse ,å¦åˆ™XoffCharå’ŒXonCharæ‰€å¯¹åº”çš„å­—ç¬¦ä¸èƒ½æ¥æ”¶
   MainForm.PLC_Comm.Inx_XonXoffFlow := True;
   MainForm.PLC_Comm.Outx_XonXoffFlow := True;
   MainForm.PLC_Comm.XoffChar:=#02;
@@ -314,7 +314,7 @@ begin
       Case ComPortInfo.ComPortParity of
        ptNONE:
          begin
-           MainForm.PLC_Comm.Parity:= None; //ÆæÅ¼¼ìÑéÎŞ
+           MainForm.PLC_Comm.Parity:= None; //å¥‡å¶æ£€éªŒæ— 
          end;
        ptODD:
          begin
@@ -338,8 +338,8 @@ begin
 
      end; //end  Case ComPortInfo.ComPortParity
     //MainForm.PLC_Comm.Parity :=  TParity( ParaInfo.ComPara.ComPortParity);
-    MainForm.PLC_Comm.ByteSize :=TByteSize(ParaInfo.ComPara.ComPortDataBits);  //Êı¾İÎ»7 _7
-    MainForm.PLC_Comm.StopBits:=TStopBits(ParaInfo.ComPara.ComPortStopBits);  //Í£Ö¹Î»1 _1
+    MainForm.PLC_Comm.ByteSize :=TByteSize(ParaInfo.ComPara.ComPortDataBits);  //æ•°æ®ä½7 _7
+    MainForm.PLC_Comm.StopBits:=TStopBits(ParaInfo.ComPara.ComPortStopBits);  //åœæ­¢ä½1 _1
     MainForm.PLC_Comm.StopComm;
     delay(300);
     MainForm.PLC_Comm.ReadIntervalTimeout:= 25 ;
@@ -365,11 +365,11 @@ begin
 
 
 end;
-//========´ò¿ªPLC´®¿Ú ²¢ÉèÖÃ´®¿Ú²ÎÊı
+//========æ‰“å¼€PLCä¸²å£ å¹¶è®¾ç½®ä¸²å£å‚æ•°
 
-//------------- Á¬ÖÁÏÂÎ»»úPLCµÄ´®¿ÚÄ¬ÈÏ²ÎÊı£¬ÓÃPLCµÄPort0Ö»¿É¸ü¸Ä²¨ÌØÂÊ
+//------------- è¿è‡³ä¸‹ä½æœºPLCçš„ä¸²å£é»˜è®¤å‚æ•°ï¼Œç”¨PLCçš„Port0åªå¯æ›´æ”¹æ³¢ç‰¹ç‡
 Procedure TFatekPLCForm.PLCCOMDefault( );
-begin  //Ã»ÓĞÅäÖÃÎÄ¼şÊ±µ÷ÓÃ´ËÄ¬ÈÏ²ÎÊı
+begin  //æ²¡æœ‰é…ç½®æ–‡ä»¶æ—¶è°ƒç”¨æ­¤é»˜è®¤å‚æ•°
   ParaInfo.ComPara.ComPort:=pnCOM1;
   ParaInfo.ComPara.ComPortSpeed:=br9600;
   ParaInfo.ComPara.ComPortStopBits:=sb1BITS;
@@ -385,7 +385,7 @@ end;
 //=======
 
 //--------
-Procedure TFatekPLCForm.PLCCOMFree(); //PLC´®¿ÚÊÍ·Å
+Procedure TFatekPLCForm.PLCCOMFree(); //PLCä¸²å£é‡Šæ”¾
 begin
    if MainForm.PLC_Comm.Handle<>INVALID_HANDLE_VALUE then
     begin
@@ -409,7 +409,7 @@ end;
 
 
 //*************************************
-//***********Ğ£ÑéºÍ********LRC?********
+//***********æ ¡éªŒå’Œ********LRC?********
 //*************************************
 
 function LRC_Check(PCharData:PansiChar;itmp:integer):Byte;     //
@@ -419,7 +419,7 @@ var
   i:integer;
   PCharDataLen:integer;
   intback:byte;//integer;
-begin //Ö¸ÕëÒª×¢Òâ£¬²»Òª³¬ÏŞ ,ÄÚ´æÒª×¢Òâ£¬ÓĞGet¾ÍÒªÓĞFree
+begin //æŒ‡é’ˆè¦æ³¨æ„ï¼Œä¸è¦è¶…é™ ,å†…å­˜è¦æ³¨æ„ï¼Œæœ‰Getå°±è¦æœ‰Free
   //GetMem(PbData,Sizeof(Byte)*(StrLen(PCharData)+1));
   PbData:=PByte(PCharData);
   PCharDataLen:=AnsiStrings.StrLen(PCharData);
@@ -443,7 +443,7 @@ var
   i:integer;
   PCharDataLen:integer;
   intback:byte;//integer;
-begin //Ö¸ÕëÒª×¢Òâ£¬²»Òª³¬ÏŞ ,ÄÚ´æÒª×¢Òâ£¬ÓĞGet¾ÍÒªÓĞFree
+begin //æŒ‡é’ˆè¦æ³¨æ„ï¼Œä¸è¦è¶…é™ ,å†…å­˜è¦æ³¨æ„ï¼Œæœ‰Getå°±è¦æœ‰Free
   //GetMem(PbData,Sizeof(Byte)*(StrLen(PCharData)+1));
   PbData:=PByte(PCharData);
   PCharDataLen:=AnsiStrings.StrLen(PCharData);

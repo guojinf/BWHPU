@@ -1,4 +1,4 @@
-object FatekPLCForm: TFatekPLCForm
+﻿object FatekPLCForm: TFatekPLCForm
   Left = 0
   Top = 0
   Caption = #27704#23439'PLC'#37197#32622

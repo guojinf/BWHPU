@@ -1,4 +1,4 @@
-unit LanguageFunc;
+ï»¿unit LanguageFunc;
 
 interface
 uses Windows,ComObj,Messages, SysUtils, Variants, Classes, Graphics,IniFiles,
@@ -10,7 +10,7 @@ uses Windows,ComObj,Messages, SysUtils, Variants, Classes, Graphics,IniFiles,
 //Procedure SetLanguageInfo(LangType:integer);
 procedure SetLanguage(const FileName: string; var msg: array of string; const IgnoreTagValue: byte = $FF);
 
-//----- ¶¨Òå³õÊ¼ĞÅÏ¢µÄ×Ö·û
+//----- å®šä¹‰åˆå§‹ä¿¡æ¯çš„å­—ç¬¦
 Procedure DefineMsgStr();
 
 implementation
@@ -20,33 +20,33 @@ uses VarDef,TypeDef;
 
 
 {****************************************
-* Ä£¿éËµÃ÷£ºÀûÓÃÇĞ»»INIÇĞ»»ÓïÑÔº¯Êı*
+* æ¨¡å—è¯´æ˜ï¼šåˆ©ç”¨åˆ‡æ¢INIåˆ‡æ¢è¯­è¨€å‡½æ•°*
 ****************************************}
 {****************************************
-ÏÂÃæµÄ±àÒëÖ¸¶¨±íÊ¾ÊÇ·ñµ¼³ö³ÉÒ»¸öINIÎÄ¼ş
-Ò»°ãµÄÇé¿öÏÂÃæ£¬Ã»ÓĞ±ØÒªĞŞ¸Ä£¬µ«ĞèÒªÄ¸±¾
-INIµÄÊ±ºò£¬¿ÉÒÔ°Ñ×¢ÊÍÈ¥µô
+ä¸‹é¢çš„ç¼–è¯‘æŒ‡å®šè¡¨ç¤ºæ˜¯å¦å¯¼å‡ºæˆä¸€ä¸ªINIæ–‡ä»¶
+ä¸€èˆ¬çš„æƒ…å†µä¸‹é¢ï¼Œæ²¡æœ‰å¿…è¦ä¿®æ”¹ï¼Œä½†éœ€è¦æ¯æœ¬
+INIçš„æ—¶å€™ï¼Œå¯ä»¥æŠŠæ³¨é‡Šå»æ‰
 ****************************************}
 
 {$IFNDEF INI_EXPORT}
 //{$DEFINE INI_EXPORT}
 {$ENDIF}
 {****************************************
-º¯Êı²ÎÊıËµÃ÷£º
-FileName:IniÓïÑÔÎÄ¼şÃû
-msg:ÓÃÓÚ³ÌĞòÖĞµÄĞÅÏ¢µÄ±£´æÊı×é
-IgnoreTagValue:ĞèÒªºöÂÔµÄ×é¼şµÄTagÖµ
-Ê¹ÓÃ¾ÙÀı£º
+å‡½æ•°å‚æ•°è¯´æ˜ï¼š
+FileName:Iniè¯­è¨€æ–‡ä»¶å
+msg:ç”¨äºç¨‹åºä¸­çš„ä¿¡æ¯çš„ä¿å­˜æ•°ç»„
+IgnoreTagValue:éœ€è¦å¿½ç•¥çš„ç»„ä»¶çš„Tagå€¼
+ä½¿ç”¨ä¸¾ä¾‹ï¼š
 var
 Msg:array of string;
 .....
 SetLanguage(ExtractFilePath(ParamStr(0))+'English.Ini',msg,$FF);
-ÄÇÃ´º¯Êı»áºöÂÔËùÓĞTagÖµÎª$FFµÄ¿Ø¼ş
+é‚£ä¹ˆå‡½æ•°ä¼šå¿½ç•¥æ‰€æœ‰Tagå€¼ä¸º$FFçš„æ§ä»¶
 ****************************************}
 
 procedure SetLanguage(const FileName: string; var msg: array of string; const IgnoreTagValue: byte = $FF);
 const
-///ÏÂÃæÊÇÒ»Ğ©³£Á¿
+///ä¸‹é¢æ˜¯ä¸€äº›å¸¸é‡
 TRANS_SECTION = 'Translations';
 MESSAGES = 'Messages';
 COMMON = 'Common';
@@ -73,22 +73,22 @@ begin
     if Application.Title<>'' then WriteString('COMMON', 'Application.Title', Application.Title);
     WriteBool('COMMON', 'CheckValid', True);
     {$ELSE}
-    if not ReadBool('COMMON', 'CheckValid', False) then exit; ///²»ÊÇºÏ·¨µÄÓïÑÔÎÄ¼ş
+    if not ReadBool('COMMON', 'CheckValid', False) then exit; ///ä¸æ˜¯åˆæ³•çš„è¯­è¨€æ–‡ä»¶
     Application.Title := ReadString('COMMON', 'Application.Title',Application.Title);
     {$ENDIF}
-    for i := Low(msg) to High(msg) do ///¶ÁÈ¡·Ç¿Ø¼şµÄÒ»Ğ©ÓïÑÔÔªËØ
+    for i := Low(msg) to High(msg) do ///è¯»å–éæ§ä»¶çš„ä¸€äº›è¯­è¨€å…ƒç´ 
     {$IFDEF INI_EXPORT}
       if Msg[i]<>'' then
         WriteString(MESSAGES, MSG_PRE + IntToStr(i), msg[i]);
     {$ELSE}
       msg[i] := ReadString(MESSAGES, MSG_PRE + IntToStr(i), msg[i]);
     {$ENDIF}
-  for i := 0 to Screen.FormCount - 1 do ///±éÀú³ÌĞòËùÓĞ´°Ìå
+  for i := 0 to Screen.FormCount - 1 do ///éå†ç¨‹åºæ‰€æœ‰çª—ä½“
   begin
     Component := Screen.Forms[i] as TComponent;
 
 
-    if Component.Tag <> IgnoreTagValue then  ///ĞèÒªºöÂÔµÄ¿Ø¼şif Component.Tag = IgnoreTagValue then Continue; ///ĞèÒªºöÂÔµÄ¿Ø¼ş
+    if Component.Tag <> IgnoreTagValue then  ///éœ€è¦å¿½ç•¥çš„æ§ä»¶if Component.Tag = IgnoreTagValue then Continue; ///éœ€è¦å¿½ç•¥çš„æ§ä»¶
     begin
       {$IFDEF INI_EXPORT}
       if Screen.Forms[i].Caption<>'' then
@@ -100,15 +100,15 @@ begin
       Screen.Forms[i].Hint := ReadString(TRANS_SECTION, Screen.Forms[i].Name + '.' + HINT, Screen.Forms[i].Hint);
       {$ENDIF}
     end;
-    for j := 0 to Screen.Forms[i].ComponentCount - 1 do ///±éÀú´°ÌåËùÓĞ×é¼ş
+    for j := 0 to Screen.Forms[i].ComponentCount - 1 do ///éå†çª—ä½“æ‰€æœ‰ç»„ä»¶
     begin
       Component := Screen.Forms[i].Components[j] as TComponent;
-      if Component.Tag = IgnoreTagValue then Continue; ///ĞèÒªºöÂÔµÄ¿Ø¼ş
+      if Component.Tag = IgnoreTagValue then Continue; ///éœ€è¦å¿½ç•¥çš„æ§ä»¶
       Id := Screen.Forms[i].Name + '.' + Component.Name + '.';
-      if Component is TControl then ///ÆÕÍ¨µÄ¿Ø¼şÈç£ºTButton,TSpeedButton,TBitBtn,TCheckBox....
+      if Component is TControl then ///æ™®é€šçš„æ§ä»¶å¦‚ï¼šTButton,TSpeedButton,TBitBtn,TCheckBox....
       begin
         Control := Component as TControl;
-        /// ÏÂÃæµÄ´úÂëÊÇÓÃÀ´Éú³ÉµÚÒ»¸öINIÎÄ¼şÊ¹ÓÃµÄ
+        /// ä¸‹é¢çš„ä»£ç æ˜¯ç”¨æ¥ç”Ÿæˆç¬¬ä¸€ä¸ªINIæ–‡ä»¶ä½¿ç”¨çš„
         {$IFDEF INI_EXPORT}
         if Control.Hint<>'' then
           WriteString(TRANS_SECTION, Id + HINT, Control.Hint);
@@ -118,22 +118,22 @@ begin
         Control.Hint := ReadString(TRANS_SECTION, Id + HINT, Control.Hint);
 
         {$ENDIF}
-        if Control is TCustomEdit then Continue; ///ºöÂÔTMemo,TEditÖ®ÀàµÄ
+        if Control is TCustomEdit then Continue; ///å¿½ç•¥TMemo,TEditä¹‹ç±»çš„
         if (Component is TCustomListBox) or (Component is TCustomRadioGroup)
-        or (Component is TCustomComboBox) then /// Listbox,RadioGroup,Combobox±ØĞëµ¥¶À´¦Àí
+        or (Component is TCustomComboBox) then /// Listbox,RadioGroup,Comboboxå¿…é¡»å•ç‹¬å¤„ç†
         begin
-          Strings := nil; ///±¾ĞĞÓÃÓÚºöÂÔ±àÒëĞÅÏ¢
+          Strings := nil; ///æœ¬è¡Œç”¨äºå¿½ç•¥ç¼–è¯‘ä¿¡æ¯
           if Component is TCustomListBox then Strings := TCustomListBox(Component).Items;
           if Component is TCustomRadioGroup then Strings := TRadioGroup(Component).Items;
           if Component is TCustomComboBox then Strings := TCustomComboBox(Component).Items;
-          for k := 0 to Strings.Count - 1 do ///±éÀúItemsµÄÃ¿Ò»Ïî
+          for k := 0 to Strings.Count - 1 do ///éå†Itemsçš„æ¯ä¸€é¡¹
             {$IFDEF INI_EXPORT}
             WriteString(TRANS_SECTION, ID + 'Items.' + IntToStr(k), Strings.Strings[k]);
             {$ELSE}
             Strings[k] := ReadString(TRANS_SECTION, ID + 'Items.' + IntToStr(k), Strings.Strings[k]);
             {$ENDIF}
         end;
-        if Component is TCustomComboBox then Continue; ///Combobox»¹ÓĞÒ»µã¶ùÎÊÌâ£¬:-(
+        if Component is TCustomComboBox then Continue; ///Comboboxè¿˜æœ‰ä¸€ç‚¹å„¿é—®é¢˜ï¼Œ:-(
           L := Control.GetTextLen + 1;
           GetMem(OldCaption, L);
           Control.GetTextBuf(OldCaption, L);
@@ -146,7 +146,7 @@ begin
           FreeMem(OldCaption, L);
           continue;
         end;
-        if Component is TMenuItem then /// ´¦ÀíTMenuItem
+        if Component is TMenuItem then /// å¤„ç†TMenuItem
         begin
           {$IFDEF INI_EXPORT}
           if (TMenuItem(Component).Caption<>'') and (TMenuItem(Component).Caption <>'-') then
@@ -159,7 +159,7 @@ begin
           {$ENDIF}
           Continue;
         end;
-        if Component is TCustomAction then /// ´¦ÀíTAction
+        if Component is TCustomAction then /// å¤„ç†TAction
         begin
           {$IFDEF INI_EXPORT}
           if TCustomAction(Component).Caption<>'' then
@@ -172,7 +172,7 @@ begin
           {$ENDIF}
           Continue;
         end;
-        if Component is TOpenDialog then ///´¦ÀíTOpenDialog,TSaveDialog,....
+        if Component is TOpenDialog then ///å¤„ç†TOpenDialog,TSaveDialog,....
         begin
           {$IFDEF INI_EXPORT}
           if TOpenDialog(Component).Filter<>'' then
@@ -184,7 +184,7 @@ begin
           TOpenDialog(Component).Title := ReadString(TRANS_SECTION, CAPTION, TOpenDialog(Component).Title);
           {$ENDIF}
         end;
-      end;  //end for j := 0 to Screen.Forms[i].ComponentCount - 1 do ///±éÀú´°ÌåËùÓĞ×é¼ş
+      end;  //end for j := 0 to Screen.Forms[i].ComponentCount - 1 do ///éå†çª—ä½“æ‰€æœ‰ç»„ä»¶
     end;
   finally
    //  IniFile.destroy;
@@ -196,11 +196,11 @@ begin
 end;
 //====
 
-//----- ¶¨Òå³õÊ¼ĞÅÏ¢µÄ×Ö·û
+//----- å®šä¹‰åˆå§‹ä¿¡æ¯çš„å­—ç¬¦
 Procedure DefineMsgStr();
 begin
-  MSGStr[1]:='ÎŞHYInitPara.IniÅäÖÃÎÄ¼ş!';
-  MSGStr[2]:='³¬ÔØ';
+  MSGStr[1]:='æ— HYInitPara.Inié…ç½®æ–‡ä»¶!';
+  MSGStr[2]:='è¶…è½½';
   
 end;
 

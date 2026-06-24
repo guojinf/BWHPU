@@ -1,4 +1,4 @@
-unit ParaSet;
+ï»¿unit ParaSet;
 
 interface
 
@@ -59,11 +59,11 @@ end;
 procedure TParaSetForm.CommTypeRadioGroup1Click(Sender: TObject);
 begin
   case CommTypeRadioGroup1.ItemIndex of
-    0:begin    //´®¿Ú
+    0:begin    //ä¸²å£
       ComGroupBox.Visible:= True;
       NetGroupBox.Visible:= False;
     end;
-    1:begin     //Íø¿Ú
+    1:begin     //ç½‘å£
       ComGroupBox.Visible:= False;
       NetGroupBox.Visible:= True;
     end;
@@ -103,17 +103,17 @@ procedure TParaSetForm.OKButtonClick(Sender: TObject);
 var
 i:integer;
 begin
-  //¸÷²ÎÊı¸³Öµ
+  //å„å‚æ•°èµ‹å€¼
   With ParaInfo do
   begin
-    ParaInfo.PumpNum:=StrToInt(Pump_Num_ComboBox.Text); //±ÃÊıÁ¿
-    //ParaInfo.PLCType:=StrToInt         //ÎÄ±¾ÖĞÉèÖÃ    PLCÀàĞÍ
-    ParaInfo.PumpOff_ATSoftColse_EN:=PumpCheckBox1.Checked; //¹ØÈí¼şÊÇ·ñ¹ØÓÍ±Ã£¬1¹Ø
-    //ParaInfo.ParaDispEN[i]:=        //ÎÄ±¾ÖĞÉèÖÃ  ÊÇ·ñÏÔÊ¾²ÎÊı
-    //ParaInfo.ParaDispAdd[i]:=       //ÎÄ±¾ÖĞÉèÖÃ      ÔÚPLCÖĞµÄµØÖ·
+    ParaInfo.PumpNum:=StrToInt(Pump_Num_ComboBox.Text); //æ³µæ•°é‡
+    //ParaInfo.PLCType:=StrToInt         //æ–‡æœ¬ä¸­è®¾ç½®    PLCç±»å‹
+    ParaInfo.PumpOff_ATSoftColse_EN:=PumpCheckBox1.Checked; //å…³è½¯ä»¶æ˜¯å¦å…³æ²¹æ³µï¼Œ1å…³
+    //ParaInfo.ParaDispEN[i]:=        //æ–‡æœ¬ä¸­è®¾ç½®  æ˜¯å¦æ˜¾ç¤ºå‚æ•°
+    //ParaInfo.ParaDispAdd[i]:=       //æ–‡æœ¬ä¸­è®¾ç½®      åœ¨PLCä¸­çš„åœ°å€
 
     //Comm232para
-    ParaInfo.CommType:=CommTypeRadioGroup1.ItemIndex;   //ÄÄÖÖÍ¨Ñ¶·½Ê½
+    ParaInfo.CommType:=CommTypeRadioGroup1.ItemIndex;   //å“ªç§é€šè®¯æ–¹å¼
     ParaInfo.ComPara.ComPort := TComPortNumber((SelCom_ComboBox.ItemIndex));
     ParaInfo.ComPara.ComPortSpeed := TComPortBaudRate(BpsComboBox.ItemIndex);
     ParaInfo.ComPara.ComPortDataBits := TComPortDataBits(DataBitComboBox.ItemIndex );
@@ -122,7 +122,7 @@ begin
     //netpara
     ParaInfo.NetPara.IPAddr := IPMaskEdit.Text;
     ParaInfo.NetPara.Port := StrToInt(IPPortComboBox.Text);
-   // ParaInfo.NetPara.ProtocolType := StrToInt(          //ÔÚÎÄ±¾ÖĞÉèÖÃ Í¨Ñ¶Ğ­Òé
+   // ParaInfo.NetPara.ProtocolType := StrToInt(          //åœ¨æ–‡æœ¬ä¸­è®¾ç½® é€šè®¯åè®®
     if ParaInfo.commType=COMMTYPE_COM then
     begin
       ParaInfo.ComPara.Enable:=True;

@@ -1,4 +1,4 @@
-object MainForm: TMainForm
+﻿object MainForm: TMainForm
   Left = 100
   Top = 100
   Margins.Left = 5
