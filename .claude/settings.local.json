@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd)",
+      "Bash(sed -i.bak 's/^ Controls,Forms,Dialogs, ComCtrls, StdCtrls,Buttons, ExtCtrls,Menus, mmSystem,$/ Vcl.Controls,Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls,Vcl.Buttons, Vcl.ExtCtrls,Vcl.Menus, Winapi.MMSystem,/' LanguageFunc.pas)",
+      "Bash(sed -i.bak 's/^ ActnList,$/ Vcl.ActnList,/' LanguageFunc.pas)",
+      "Bash(sed -i.bak 's/^  ToolWin,main;$/ Vcl.ToolWin,main;/' LanguageFunc.pas)",
+      "Bash(python3 -c \"with open\\('LanguageFunc.pas', 'rb'\\) as f: data = f.read\\(\\); cr_count = data.count\\(b'\\\\r'\\); print\\(f'CR bytes: {cr_count}'\\); print\\(f'File size: {len\\(data\\)} bytes'\\)\")",
+      "Bash(xxd LanguageFunc.pas)",
+      "Bash(sed -i.bak 's/$/\\\\r/' LanguageFunc.pas)",
+      "Bash(sed -i.bak 's/\\\\r$//' LanguageFunc.pas)"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+# HPU Delphi 项目问题与解决方案总结
+## 一、编码问题
+### 1. 中文乱码
+问题： FatekPLC.pas 等文件中中文注释显示为乱码 解决：
+
+- 将文件从 GB2312 编码转换为 UTF-8 编码
+- 配置 Trae 编辑器使用 GBK 编码打开 .pas 文件
+## 二、编译错误
+### 2. 单元命名空间问题
+问题：
+
+- Unit 'math' not found
+- Unit 'Windows' not found
+- Unit 'AnsiStrings' not found
+解决：
+
+- math → System.Math
+- Windows → Winapi.Windows
+- AnsiStrings → System.AnsiStrings
+### 3. 类型转换错误
+问题：
+
+- Format 'EReadError' invalid or incompatible with argument
+- Variant method calls not supported
+解决：
+
+- 为 TIniFile.ReadString 和 ReadBool 返回值添加类型转换
+- 为 Format 函数参数添加正确的类型转换
+### 4. 重复声明错误
+问题： Main.pas(136) Error: E2004 Identifier redeclared: 'TMainForm.Quit_ItemClick' 解决： 删除重复的 Quit_ItemClick 方法定义
+
+### 5. AnsiStrings 单元调用错误
+问题： FatekPLC.pas 中 AnsiStrings.StrLen , AnsiStrings.StrCopy , AnsiStrings.StrCat 无法识别 解决： 将所有 AnsiStrings. 调用改为完全限定名 System.AnsiStrings.
+
+## 三、运行时错误
+### 6. AboutForm 创建失败
+问题： Application.CreateForm(TAboutForm, AboutForm) 执行时出错 解决：
+
+- 修复 SetLanguage 函数中的键名格式化
+- 修正 TCustomAction 和 TOpenDialog 组件的本地化处理
+### 7. HPU.chs 文件冲突
+问题： 有 HPU.chs 文件时运行报错 解决： 修正语言特定项目文件中的目标文件名设置
+
+## 四、配置问题
+### 8. 项目目标文件名错误
+问题：
+
+- DEU\HPU_DEU.bdsproj 设置目标为 HPU.ENU 而非 HPU.DEU
+- CHS\HPU_CHS.bdsproj 设置目标为 HPU.DEU 而非 HPU.CHS
+- ENU\HPU_ENU.bdsproj 设置目标为 HPU.CHS 而非 HPU.ENU
+解决： 修正各语言项目文件中的 <Options Name="TargetName"> 设置
+
+## 五、编辑器配置
+### 9. 语法高亮缺失
+问题： Trae 编辑器中 Pascal 关键字没有颜色显示 解决： 在 .trae/settings.json 中添加语法高亮配置
+
+### 10. 调试功能缺失
+问题： Trae 编辑器没有内置 Delphi 调试功能 解决： 建议使用 Delphi RAD Studio 或配置 VS Code 扩展进行调试
+
+## 六、最终状态
+成功编译：
+
+- 编译时间：1.00 秒
+- 代码大小：2,430,204 字节
+- 生成文件：HPU.CHS, HPU.DEU, HPU.ENU 三个语言版本
+- 所有中文注释正常显示
+- 项目可在 Windows 7 上运行
